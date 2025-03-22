@@ -3,8 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
 
 # Asos
-to git clone -->  
-git clone https://github.com/AhmedSamir109/asos.git
+to git clone -->  " git clone https://github.com/AhmedSamir109/asos.git "
 
 # Asos
 must install node modules  
