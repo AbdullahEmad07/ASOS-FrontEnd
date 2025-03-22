@@ -43,11 +43,12 @@ import { WBrandsComponent } from './Component/W-Brands/W-Brands.component';
     WShoesComponent,
     WClothingComponent,
     WNewInComponent,
-    WBrandsComponent 
+    WBrandsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
