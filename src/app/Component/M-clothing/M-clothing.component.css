@@ -1,14 +1,3 @@
-.accordion-button:not(.collapsed) {
-    color: #f0f3f6;
-    background-color: #525050; 
-    box-shadow: inset 0 calc(-1* var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
-}
-
-.form-check-input:checked {
-    background-color: #525050; 
-    border-color:#525050; 
-}
-
 
 .form-control:focus {
     color: var(--bs-body-color);
