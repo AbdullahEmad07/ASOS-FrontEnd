@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color: #525050;
+}
+
+.main-color{
+    background-color: var(--main-color);
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.fav{
+    position: absolute;
+    right: .625rem;
+    bottom: .625rem;
+    font-size: 1.5rem;
+    padding: 8px;
+    background-color: rgba(250, 250, 250, 0.9);
+    border-radius: 50%;
+}
+
+.cart{
+    position: absolute;
+    right: .625rem;
+    bottom: 4rem;
+    font-size: 1.5rem;
+    padding: 8px;
+    background-color: rgba(250, 250, 250, 0.9);
+    border-radius: 50%;
+}
+
+.w-55{
+    width: 50%;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .w-55{
+        width: 96%;
+    }
+}
+
