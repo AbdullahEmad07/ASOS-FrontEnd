@@ -18,8 +18,3 @@
     box-shadow: none;
 }
 
-input[type="search"]::-webkit-search-cancel-button {
-    color: red;
-    background-color: yellow; 
-    border-radius: 50%; 
-  }
