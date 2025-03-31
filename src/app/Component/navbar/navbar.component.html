@@ -1,3 +1,91 @@
-<p>
-  navbar works!
-</p>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top nav-bg py-2 py-lg-0">
+  <div class="container">
+   
+    <div class="d-flex align-items-center">
+      <button
+       class="navbar-toggler hidden-lg-up me-2"
+       type="button"
+       data-bs-toggle="collapse"
+       data-bs-target="#collapsibleNavId"
+       aria-controls="collapsibleNavId"
+       aria-expanded="false"
+       aria-label="Toggle navigation">
+      </button>
+    
+      <a class="navbar-brand me-4">
+       <img src="../../../assets/logo.svg" class="nav-logo" alt="">
+      </a>
+    </div>
+
+    <div class="d-lg-none">
+        <i class="fa-regular fa-heart text-light fs-5 pointer mx-2"></i>
+
+        <i class="fa-solid fa-bag-shopping position-relative text-light fs-3 mx-2 pointer">
+          <span class="badge cart-num">{{5}}</span>
+        </i>
+    </div>
+    
+    <div class="collapse navbar-collapse px-2" id="collapsibleNavId">
+
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item fs-5 fw-medium px-3  pointer py-2 women">
+          <a class="nav-link text-white" aria-current="page"> Women </a>
+        </li>
+        <li class="nav-item fs-5 fw-medium px-3 pointer py-2 men">
+          <a class="nav-link text-white"> Men</a>
+        </li>
+      </ul>
+
+      <hr class="d-lg-none my-3 w-100 text-light">
+
+      <ul class="navbar-nav ms-auto align-items-lg-center d-none d-lg-flex">
+        <li class="nav-item dropdown pointer">
+          <a
+            class="nav-link dropdown-toggle"
+          
+            id="dropdownId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+              <img src="../../../assets/placeholder.jpg" class="user-img" alt="">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownId">
+            <a class="dropdown-item"> <i class="fa-solid fa-circle-user me-2"></i> My Account</a>
+           
+            <div class="d-flex">
+              <a class="dropdown-item">Login</a> | <a class="dropdown-item">Register</a>
+            </div>
+
+            <a class="dropdown-item"> <i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Log Out</a>
+
+          </div>
+        </li>
+        <li class="nav-item text-light mx-lg-4 fs-3 pointer">
+          <i class="fa-regular fa-heart"></i>
+        </li>
+        <li class="nav-item text-light fs-3  pointer">
+          <i class="fa-solid fa-bag-shopping position-relative">
+            <span class="badge cart-num">{{5}}</span>
+          </i>
+        </li>
+      </ul>
+
+
+      <ul class="navbar-nav ms-auto align-items-lg-center d-lg-none ps-3 mt-2">
+        <li class="nav-item text-light mx-lg-4 mb-1 fs-6 pointer">
+          <a class="dropdown-item">  My Account</a>
+        </li>
+        <li class="nav-item text-light mx-lg-4 mb-1 fs-6 pointer">
+          <div class="d-flex">
+            <a class="dropdown-item pe-2">Login</a> | <a class="dropdown-item ps-2">Register</a>
+          </div>
+        </li>
+        <li class="nav-item text-light mx-lg-4 mb-1 fs-6 pointer">
+          <a class="dropdown-item"> Log Out</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
