@@ -44,10 +44,12 @@ import { WBrandsComponent } from './Component/W-Brands/W-Brands.component';
     WClothingComponent,
     WNewInComponent,
     WBrandsComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
     
   ],
   providers: [],
