@@ -1,9 +1,0 @@
-footer{
-    background-color: rgb(221,221,221);
-    font-size: .9rem;
-}
-
-span:hover{
-    color: blueviolet;
-    transition: 0.5s;
-}

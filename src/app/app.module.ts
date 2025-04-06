@@ -3,23 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './Component/navbar/navbar.component';
-import { FooterComponent } from './Component/footer/footer.component';
-import { HomeComponent} from './Component/Home/Home.component';
-import { LoginComponent } from './Component/login/login.component';
-import { RegisterComponent } from './Component/Register/Register.component';
-import { MenComponent } from './Component/Men/Men.component';
-import { WomenComponent } from './Component/Women/Women.component';
-import { MAccessoriesComponent } from './Component/M-Accessories/M-Accessories.component';  
-import { MShoesComponent } from './Component/M-Shoes/M-Shoes.component';
-import { MClothingComponent } from './Component/M-clothing/M-clothing.component';
-import { MNewInComponent } from './Component/M-NewIn/M-NewIn.component';
-import { MBrandsComponent } from './Component/M-Brands/M-Brands.component';
-import { WAccessoriesComponent } from './Component/W-Accessories/W-Accessories.component';
-import { WShoesComponent } from './Component/W-Shoes/W-Shoes.component';
-import { WClothingComponent } from './Component/W-Clothing/W-Clothing.component';
-import { WNewInComponent } from './Component/W-NewIn/W-NewIn.component';
-import { WBrandsComponent } from './Component/W-Brands/W-Brands.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { HomeComponent} from './Components/Home/Home.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/Register/Register.component';
+import { MenComponent } from './Components/Men/Men.component';
+import { WomenComponent } from './Components/Women/Women.component';
+import { MAccessoriesComponent } from './Components/M-Accessories/M-Accessories.component';  
+import { MShoesComponent } from './Components/M-Shoes/M-Shoes.component';
+import { MClothingComponent } from './Components/M-clothing/M-clothing.component';
+import { MNewInComponent } from './Components/M-NewIn/M-NewIn.component';
+import { MBrandsComponent } from './Components/M-Brands/M-Brands.component';
+import { WAccessoriesComponent } from './Components/W-Accessories/W-Accessories.component';
+import { WShoesComponent } from './Components/W-Shoes/W-Shoes.component';
+import { WClothingComponent } from './Components/W-Clothing/W-Clothing.component';
+import { WNewInComponent } from './Components/W-NewIn/W-NewIn.component';
+import { WBrandsComponent } from './Components/W-Brands/W-Brands.component';
+import { UserOrdersComponent } from './Components/user-orders/user-orders.component';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 
@@ -44,12 +48,15 @@ import { WBrandsComponent } from './Component/W-Brands/W-Brands.component';
     WClothingComponent,
     WNewInComponent,
     WBrandsComponent,
-    
+    UserOrdersComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
+    RouterModule,
+    BrowserAnimationsModule,
+    CarouselModule
     
   ],
   providers: [],
