@@ -20,6 +20,10 @@ import { WShoesComponent } from './Components/W-Shoes/W-Shoes.component';
 import { WClothingComponent } from './Components/W-Clothing/W-Clothing.component';
 import { WNewInComponent } from './Components/W-NewIn/W-NewIn.component';
 import { WBrandsComponent } from './Components/W-Brands/W-Brands.component';
+import { UserOrdersComponent } from './Components/user-orders/user-orders.component';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 
@@ -44,10 +48,14 @@ import { WBrandsComponent } from './Components/W-Brands/W-Brands.component';
     WClothingComponent,
     WNewInComponent,
     WBrandsComponent,
+    UserOrdersComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    CarouselModule
     
   ],
   providers: [],
