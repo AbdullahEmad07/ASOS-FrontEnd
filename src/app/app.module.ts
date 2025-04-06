@@ -49,6 +49,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     WNewInComponent,
     WBrandsComponent,
     UserOrdersComponent,
+
   ],
   imports: [
     BrowserModule,
