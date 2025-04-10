@@ -1,0 +1,292 @@
+.main_container{
+  margin-top: 60px;
+}
+.f-div ,.main_container ,.code{
+  background-color: #000000;
+  color: white;
+  font-size: 15px;
+  padding: 5px 0;
+}
+.main_container{
+  border-bottom: 1px solid #fff;
+}
+.main_container button ,.code button{
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  height: 30px;
+  line-height: 26px;
+  margin: 9px 0;
+  opacity: 1;
+  text-decoration: none;
+  transition: opacity .8s ease;
+  width: 100px;
+  background-color: transparent;
+}
+.main_container button:hover{
+  background-color: #c0c0c0;
+}
+.promo-button{
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  height: 30px;
+  line-height: 26px;
+  margin: 9px 0;
+  opacity: 1;
+  text-decoration: none;
+  transition: opacity .8s ease;
+  width: 100px;
+  background-color: transparent;
+}
+.promo-button:hover{
+  background-color: #fff;
+}
+.code h2,.style{
+  font-size: 48px;
+  font-weight: bold;
+}
+.promo{
+  font-size: 24px;
+  font-weight: bold;
+}
+.small{
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.content img{
+max-width: 100%;
+height: 100vh;
+}
+.media-carousel
+{
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px;
+  margin-top: 30px;
+}
+/* Previous button  */
+.media-carousel .carousel-control.left
+{
+  left: -100px !important;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 30px
+}
+/* Next button  */
+
+.media-carousel .carousel-control.right
+{
+  right: -12px !important;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 30px
+}
+.media-carousel .carousel-indicators
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+.media-carousel .carousel-indicators li
+{
+  background: #c0c0c0;
+}
+.media-carousel .carousel-indicators .active
+{
+  background: #333333;
+}
+.media-carousel img
+{
+  width: 250px;
+  height: 100px
+}
+.custom-indicators {
+  position: absolute;
+  bottom: -40px;
+  left: 35%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.custom-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.custom-indicators .active {
+  background-color: black;
+}
+img{
+  width: 100%;
+}
+
+.carousel-control-prev{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+.carousel-control-prev span{
+  background-color: black;
+  padding: 7px;
+  border: 1px solid #222222;
+  border-right: 0;
+  margin-right: 15px;
+}
+.carousel-control-next{
+  position: absolute;
+  top: 50%;
+  padding: 0;
+  margin: 0;
+  right: 0;
+  color: black;
+}
+.carousel-control-next span{
+  background-color: black;
+  padding: 7px;
+  border: 1px solid #222222;
+  border-left: 0;
+  margin-left: 15px;
+}
+.carousel-item p{
+  font-size: 16px;
+  color: rgba(45, 45, 45, 0.864);
+  height: 35px;
+}
+.carousel-item span{
+  color:  rgb(102, 102, 102) ;
+}
+.carousel-item .color{
+  color: red;
+}
+.carousel-item del{
+  color:  rgb(102, 102, 102) ;
+}
+.new{
+  background-color: #000000;
+  width: fit-content;
+  margin: auto;
+  color: white;
+}
+.card img{
+  height: 265px;
+}
+
+.card{
+  margin: 10px;
+  cursor: pointer;
+}
+.card-body{
+  border-top: 1px solid rgba(128, 128, 128, 0.392);
+}
+.card:hover{
+  background-color: rgba(128, 128, 128, 0.193);
+}
+/* End carousel */
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+}
+picture{
+  position: relative;
+}
+picture span{
+  position: absolute;
+  top: 50%;
+  left: 30%;
+}
+picture span a{
+  color: white;
+  text-decoration: none;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: start;
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@media (max-width: 768px){
+  .carousel-control-prev{
+    position: absolute;
+    top: 0;
+    left: 50px;
+    padding: 0;
+    margin: 0;
+    color: black;
+  }
+  .carousel-control-prev span{
+    background-color: black;
+    padding: 7px;
+    border: 1px solid #222222;
+    border-right: 0;
+    margin-right: 15px;
+  }
+  .carousel-control-next{
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    right: 50px;
+    color: black;
+  }
+  .carousel-control-next span{
+    background-color: black;
+    padding: 7px;
+    border: 1px solid #222222;
+    border-left: 0;
+    margin-left: 15px;
+  }
+  .code h2,.style{
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .promo{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  picture span{
+    position: absolute;
+    top: -50px;
+    left: 20%;
+  }
+  picture span a{
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: bold;
+  }
+}
+.btn{
+  width: fit-content !important;
+  height: 30px;
+}
+
