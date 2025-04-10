@@ -1,0 +1,512 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #fff;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+  }
+  
+  /* Hero Layout */
+  .hero {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .gender-section {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: flex 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .gender-section:hover {
+    flex: 1.2;
+  }
+  
+  .gender-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .gender-section:hover .gender-bg {
+    transform: scale(1.05);
+  }
+  
+  .men-section,
+  .women-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  }
+  
+  .gender-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .gender-section:hover .gender-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .gender-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
+  }
+  
+  .gender-desc {
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+  
+  .shop-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .shop-btn:hover {
+    background: #fff;
+    color: #000;
+  }
+  
+  .brand-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    text-align: center;
+    transition: opacity 0.5s ease;
+  }
+  
+  .hero:hover .brand-info {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .brand-name {
+    font-size: 12rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 0.2rem;
+    font-family: sans-serif;
+  }
+  
+  .brand-tagline {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  
+  /* Gallery Section */
+  .gallery-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin: 40px 0;
+    overflow: hidden;
+  }
+  
+  .gallery {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    animation: scrollGallery 20s linear infinite;
+    align-items: center;
+  }
+  
+  .gallery img {
+    width: 350px;
+    height: 400px;
+    object-fit: cover;
+    margin: 0 5px;
+    transition: transform 0.5s;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+    z-index: 10;
+  }
+  
+  .half-arch-top,
+  .half-arch-bottom {
+    position: absolute;
+    width: 100%;
+    height: 220px;
+    background-color: #fff;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .half-arch-top {
+    top: -100px;
+    border-bottom-left-radius: 90%;
+    border-bottom-right-radius: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 40px;
+    margin-top: 20px;
+  }
+  
+  .half-arch-bottom {
+    bottom: -100px;
+    border-top-left-radius: 80%;
+    border-top-right-radius: 80%;
+  }
+  
+  .gallery-container::before,
+  .gallery-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 90px;
+    height: 100%;
+    z-index: 4;
+  }
+  
+  .gallery-container::before {
+    left: 0;
+    background: linear-gradient(to right, #fff 0%, transparent 100%);
+  }
+  
+  .gallery-container::after {
+    right: 0;
+    background: linear-gradient(to left, #fff 0%, transparent 100%);
+  }
+  
+  @keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  .arch-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    transform: translateY(30px);
+  }
+  
+  .arch-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .arch-subtext {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #000;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  
+  .divider {
+    width: 80px;
+    height: 3px;
+    background-color: rgb(233, 224, 202);
+    margin: 0 auto 10px;
+  }
+  
+  /* Quality Section */
+  .quality-section {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 80px 5%;
+    background-color: #f8f8f8;
+  }
+  
+  .video-container {
+    flex: 1;
+    padding-right: 40px;
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 60%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+  
+  .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .quality-content {
+    flex: 1;
+    padding-left: 40px;
+  }
+  
+  .quality-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #302c2c;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .quality-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+  
+  .quality-list {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+  
+  .quality-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .quality-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #434343;
+    font-weight: bold;
+  }
+  
+  .learn-more-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #302c2c;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .learn-more-btn:hover {
+    background: #474747;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(131, 130, 130, 0.2);
+  }
+  
+   @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+    }
+  
+    .gender-section {
+      height: 50vh;
+    }
+  
+    .brand-info,
+    .quality-content,
+    .video-container {
+      width: 90%;
+      padding: 1.5rem 0;
+    }
+  
+    .gender-title {
+      font-size: 2.5rem;
+    }
+  
+    .quality-section {
+      flex-direction: column;
+      padding: 60px 5%;
+    }
+  
+    .video-container {
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+  
+    .quality-content {
+      padding-left: 0;
+    }
+  
+    .quality-title {
+      font-size: 2.2rem;
+    }
+  }
+
+
+  .asos-fashion-container {
+    display: flex;
+    width: 100%;
+    height:600px;
+    background-image: url('/assets/c.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    position: relative;
+    color: white;
+  }
+  
+  .left-section {
+    background: rgba(255, 255, 255, 0.8);
+    width: 30%;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #111;
+  }
+  
+  .left-section .quote-box h1 {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+  
+  .left-section .quote-box h1 span {
+    font-weight: bold;
+  }
+  
+  .left-section .quote-box p {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .left-section .pagination {
+    font-size: 12px;
+    color: #888;
+    margin-top: 40px;
+  }
+  
+  .left-section .pagination span {
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+  }
+  
+  .center-section {
+    width: 40%;
+    background: #333;
+  }
+  
+  .center-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   
+  }
+  
+  .right-section {
+    width: 30%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .right-section .abstract h3 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #bbb;
+    margin-bottom: 10px;
+  }
+  
+  .right-section .abstract p {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  
+  .right-section .items .item {
+    margin-bottom: 20px;
+  }
+  
+  .right-section .items .item .title {
+    font-size: 13px;
+    font-weight: bold;
+  }
+  
+  .right-section .items .item span {
+    font-size: 11px;
+    color: #888;
+  }
+  
+  .right-section .footer {
+    font-size: 10px;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  @media (max-width: 1024px) {
+    .asos-fashion-container {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .left-section,
+    .center-section,
+    .right-section {
+      width: 100%;
+    }
+  
+    .center-section {
+      height: 400px;
+    }
+  }
+  
