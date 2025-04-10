@@ -1,3 +1,74 @@
-<p>
-  login works!
-</p>
+<div class="main">
+  <app-navbar></app-navbar>
+<div class="body">
+  <div [class.registered]="isRegistered" class="login-container">
+    <div class="image-container"></div>
+
+    <div class="form-container" [ngClass]="{ 'animate-form': true }">
+      <!-- Login Form -->
+      <form *ngIf="!isRegistered">
+        <p class="subtitle">Welcome Back</p>
+        <label for="email">E-mail</label>
+        <div class="input-group">
+          <i class="fa fa-user"></i>
+          <input type="email" id="email" placeholder="name@example.com" />
+        </div>
+
+        <label for="password">
+          Password
+        </label>
+        <div class="input-group">
+          <i class="fa fa-lock"></i>
+          <input type="password" placeholder="Enter your password">
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+
+        <div class="remember">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Remember me for 30 days</label>
+        </div>
+
+        <button class="signin-btn">
+          Sign In
+        </button>
+        <p class="join-text">
+          Don't have an account?
+          <button type="button" (click)="toggleForm()">Sign Up</button>
+        </p>
+      </form>
+
+      <!-- Register Form -->
+      <form *ngIf="isRegistered">
+        <p class="subtitle">Join Us</p>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <i class="fa fa-user"></i>
+          <input type="text" id="name" placeholder="Enter your Name" />
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="email" placeholder="Enter your Email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <i class="fa fa-lock"></i>
+          <input type="password" id="password" placeholder="Enter your Password" />
+        </div>
+        <div class="form-group">
+          <label for="confirm">Confirm Password</label>
+          <i class="fa fa-lock"></i>
+          <input type="password" id="confirm" placeholder="Confirm your Password" />
+        </div>
+
+        <button class="btn btn-primary">Sign Up</button>
+        <p class="join-text">
+          You already have an account?
+          <button type="button" (click)="toggleForm()">Sign In</button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
