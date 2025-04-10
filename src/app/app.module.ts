@@ -24,11 +24,8 @@ import { UserOrdersComponent } from './Components/user-orders/user-orders.compon
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { ProductComponent } from './Component/product/product.component';
-import { ProfileComponent } from './Component/profile/profile.component';
-
-
-
+import { ProductComponent } from './Components/product/product.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 @NgModule({
   declarations: [
