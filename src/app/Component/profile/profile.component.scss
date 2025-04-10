@@ -1,0 +1,116 @@
+/* wishlist.component.css */
+.sidebar {
+  background-color: #fff;
+  padding: 2rem;
+  border-right: 1px solid #ccc;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1.2rem;
+}
+.sidebar li a {
+  color: #777 ;
+  font-size: 20px;
+}
+.sidebar li.active a,
+.sidebar li a:hover {
+  color: #000;
+}
+
+.sidebar a {
+  color: #000;
+  text-decoration: none;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #faf8f4;
+}
+
+.main-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #ccc;
+}
+
+.tab {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab.active {
+  border-bottom: 2px solid #000;
+}
+
+.wishlist-items {
+  display: flex;
+  gap: 2rem;
+}
+
+.item {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+}
+
+.details h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.details p {
+  margin: 0.3rem 0;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #333;
+}
+.img{
+  background-image: url(/assets/33f6e5a8-d5f6-43de-965e-b392d0ce0845.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+.img h1{
+  margin-top: 30px;
+  font-size: 70px;
+  color: rgba(0, 0, 0, 0.838);
+  letter-spacing: 2.5px;
+}
+@media (max-width: 768px){
+  .main-content{
+    padding: 0;
+  }
+}
+////////////////////////
