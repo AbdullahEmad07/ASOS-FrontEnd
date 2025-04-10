@@ -20,6 +20,8 @@ import { WShoesComponent } from './Component/W-Shoes/W-Shoes.component';
 import { WClothingComponent } from './Component/W-Clothing/W-Clothing.component';
 import { WNewInComponent } from './Component/W-NewIn/W-NewIn.component';
 import { WBrandsComponent } from './Component/W-Brands/W-Brands.component';
+import { ProductComponent } from './Component/product/product.component';
+import { ProfileComponent } from './Component/profile/profile.component';
 
 
 
@@ -44,6 +46,8 @@ import { WBrandsComponent } from './Component/W-Brands/W-Brands.component';
     WClothingComponent,
     WNewInComponent,
     WBrandsComponent,
+    ProductComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
