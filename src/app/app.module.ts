@@ -29,6 +29,8 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MenClothingSearchPipe } from './Pipes/men-clothing-search.pipe';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';   
+
 
 @NgModule({
   declarations: [
@@ -62,8 +64,8 @@ import { MenClothingSearchPipe } from './Pipes/men-clothing-search.pipe';
     BrowserAnimationsModule,
     CarouselModule,
     HttpClientModule,
-    FormsModule
-    
+    FormsModule,
+    ShoppingCartModule     
   ],
   providers: [],
   bootstrap: [AppComponent]
