@@ -14,7 +14,6 @@ export class ProductComponent implements OnInit, AfterViewInit  {
   constructor(private _MenProductsService:MenProductsService ){}
 
   ngOnInit(): void {
-   console.log(this.product);
    
   }
 
