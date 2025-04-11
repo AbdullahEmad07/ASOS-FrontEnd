@@ -10,18 +10,43 @@ import { Component, OnInit } from '@angular/core';
 export class MClothingComponent implements OnInit {
 
   products: IProduct[] = [];
+  productsFilteringArray: IProduct[] = [];
+  searchWord:string = ""
+  
 
   constructor(private _MenProductsService : MenProductsService) { }
 
   ngOnInit() {
 
-    this._MenProductsService.getMenClothingProduct().subscribe({
+    this.GetAllClothingProducts();
+   
+  };
+
+
+
+  GetAllClothingProducts() {
+    this._MenProductsService.getMenClothingProducts().subscribe({
       next: (response) => {
         this.products = response.data;
-        console.log(this.products);
+        this.productsFilteringArray = [...this.products];
+        // console.log(this.products);
       }
-
     })
+  };
+
+  GetMenJeansProducts() {
+    this.products = this.productsFilteringArray.filter( product => product.productTypeName == "Jeans");
   }
+  GetMenShirtsProducts() {
+    this.products = this.productsFilteringArray.filter( product => product.productTypeName == "Shirts");
+  }
+  GetMenJacketsProducts() {
+    this.products = this.productsFilteringArray.filter( product => product.productTypeName == "Jackets");
+  }
+  GetMenSuitsProducts() {
+    this.products = this.productsFilteringArray.filter( product => product.productTypeName == "Suits");
+  }
+
+
 
 }

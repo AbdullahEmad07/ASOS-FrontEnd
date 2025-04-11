@@ -1,6 +1,4 @@
-<!-- <div class="container">
-  <div class="row"> -->
-    <div class="wrapper mt-0 pt-0">
+<div class="wrapper mt-0 pt-0">
       <div class="contain">
         <div class="top">
           <i class="fa-regular fa-heart fa-2x m-1"></i>
@@ -10,7 +8,7 @@
           <div class="left">
             <div class="details">
               <p class="d-block">{{product.name}}</p>
-              <p>£250</p>
+              <p class="mt-1">{{product.price|currency}}</p>
             </div>
             <div class="buy">
               <i class="fa-solid fa-cart-shopping"></i>
@@ -28,17 +26,12 @@
       <div class="inside">
         <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
         <div class="contents">
-          <ul>
-            <li>Oversized fit</li>
-            <li>Plain design</li>
-            <li>Drop shoulders</li>
-            <li>
-              Model's height: 191cm / 6' 3''<br />
-              Model is wearing: M - Chest 40
-            </li>
-          </ul>
+          <p> <span class="fw-bold"> Details :</span> {{product.description}}</p>
+          <p><span class="fw-bold">Brand :</span> {{product.brandName}}</p>
+          <p><span class="fw-bold">Type :</span> {{product.productTypeName}}</p>
+          <p><span class="fw-bold">Rate :</span> {{product.rate}} <i class="fa-solid fa-star text-warning"></i></p>
+          
         </div>
       </div>
-    </div>
-  <!-- </div>
-</div> -->
+</div>
+
