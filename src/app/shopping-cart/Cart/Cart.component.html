@@ -1,3 +1,90 @@
-<p>
-  Cart works!
-</p>
+ <div class="cart-wrap">
+  <div class="main-heading-container">
+    <div class="main-heading">My Bag</div>
+  </div>
+  
+
+   <div class="cart-grid">
+     <div class="cart-items">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <img [src]="item.image" alt="{{ item.name }}" width="100" />
+        <div class="details">
+          <h4>{{ item.name }}</h4>
+          <p>Code: {{ item.code }}</p>
+          <p>Price: ${{ item.price }}</p>
+          <div class="quantity-controls">
+            <button (click)="decreaseQuantity(item)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="increaseQuantity(item)">+</button>
+          </div>
+          <button (click)="removeItem(item)">Remove</button>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="totals">
+        <p><strong>Subtotal:</strong> ${{ subtotal }}</p>
+        <p><strong>Total:</strong> ${{ total }}</p>
+      </div>
+
+      <div class="coupon">
+        <input type="text" [(ngModel)]="couponCode" placeholder="Enter coupon code" />
+        <button (click)="applyCoupon()">Apply Coupon</button>
+      </div>
+    </div>
+
+     <div class="cart-summary">
+      <div class="cart-totals">
+        <h3>TOTAL</h3>
+        <table>
+          <tr>
+            <td>Sub-total</td>
+            <td>${{ subtotal }}</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>${{ total }}</td>
+          </tr>
+        </table>
+        <button class="round-black-btn">CHECKOUT</button>
+        <p>Got a discount code? Add it in the next step.</p>
+        <p>WE ACCEPT:</p>
+        <img src="https://img.icons8.com/color/48/000000/visa.png" width="30" />
+        <img src="https://img.icons8.com/color/48/000000/mastercard.png" width="30" />
+        <img src="https://img.icons8.com/color/48/000000/amex.png" width="30" />
+        <img src="https://img.icons8.com/color/48/000000/paypal.png" width="30" />
+      </div>
+    </div>
+  </div>
+
+   <div class="suggestions">
+    <h4>A LITTLE SOMETHING EXTRA?</h4>
+    <div class="suggestion-items">
+      <div>
+        <img src="assets/2.jpg" alt="Anklet">
+        <p>$21.00</p>
+      </div>
+      <div>
+        <img src="assets/3.jpg" alt="Anklet">
+        <p>$13.50</p>
+      </div>
+      <div>
+        <img src="assets/4.jpg" alt="Anklet">
+        <p>$15.50</p>
+      </div>
+      <div>
+        <img src="assets/5.jpg" alt="Anklet">
+        <p>$7.00</p>
+      </div>
+      <div>
+        <img src="assets/6.jpg" alt="Anklet">
+        <p>$29.99</p>
+      </div>
+      <div>
+        <img src="assets/1.jpg" alt="Anklet">
+        <p>$9.50</p>
+      </div>
+    </div>
+  </div>
+</div>

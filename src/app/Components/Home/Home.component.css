@@ -492,21 +492,132 @@
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-  
-  @media (max-width: 1024px) {
-    .asos-fashion-container {
-      flex-direction: column;
-      height: auto;
-    }
-  
-    .left-section,
-    .center-section,
-    .right-section {
-      width: 100%;
-    }
-  
-    .center-section {
-      height: 400px;
-    }
+ 
+@media (max-width: 576px) {
+  .gender-title {
+    font-size: 2rem;
+  }
+
+  .gender-desc {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+
+  .brand-name {
+    font-size: 5rem;
+  }
+
+  .brand-tagline {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .gallery-container {
+    height: 300px;
+  }
+
+  .gallery img {
+    width: 220px;
+    height: 280px;
+  }
+
+  .half-arch-top,
+  .half-arch-bottom {
+    height: 120px;
+  }
+
+  .arch-title {
+    font-size: 2rem;
+  }
+
+  .arch-subtext {
+    font-size: 1rem;
+  }
+
+
+  .quality-section {
+    flex-direction: column;
+    padding: 60px 5%;
+    height: auto;
+  }
+
+  .video-container {
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .quality-content {
+    padding-left: 0;
+  }
+
+  .quality-title {
+    font-size: 2.2rem;
+  }
+  .asos-fashion-container {
+    padding: 20px 0;
+  }
+
+  .left-section,
+  .right-section {
+    padding: 20px;
+  }
+
+  .left-section .quote-box h1 {
+    font-size: 20px;
+  }
+
+  .left-section .pagination {
+    margin-top: 20px;
+  }
+
+  .right-section .abstract h3 {
+    font-size: 12px;
+  }
+
+  .right-section .abstract p {
+    font-size: 11px;
+  }
+
+  .right-section .items .item .title {
+    font-size: 12px;
+  }
+
+  .right-section .items .item span {
+    font-size: 10px;
+  }
+
+  .right-section .footer {
+    font-size: 9px;
+  }
+}
+
+ @media (max-width: 1024px) {
+  .gender-section {
+    flex: 1 !important;
+  }
+
+  .gender-section:hover {
+    flex: 1 !important;
+  }
+
+  .gender-section .gender-bg,
+  .gender-content {
+    transition: none !important;
+  }
+
+  .gender-section.active {
+    flex: 1.2 !important;
+  }
+
+  .gender-section.active .gender-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero .brand-info.hidden {
+    opacity: 0;
+    visibility: hidden;
   }
   
+}
+
