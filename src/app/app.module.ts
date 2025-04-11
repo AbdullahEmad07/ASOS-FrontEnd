@@ -24,10 +24,12 @@ import { UserOrdersComponent } from './Components/user-orders/user-orders.compon
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProductComponent } from './Components/product/product.component';
+import { ProfileComponent } from './Components/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MenClothingSearchPipe } from './Pipes/men-clothing-search.pipe';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';   
-
-
-
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
     WNewInComponent,
     WBrandsComponent,
     UserOrdersComponent,
-
+    ProductComponent,
+    ProfileComponent,
+    MenClothingSearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -59,9 +63,9 @@ import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
-    ShoppingCartModule   
-
-    
+    HttpClientModule,
+    FormsModule,
+    ShoppingCartModule     
   ],
   providers: [],
   bootstrap: [AppComponent]
