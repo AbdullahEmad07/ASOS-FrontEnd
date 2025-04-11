@@ -1,7 +1,7 @@
 <Section>
-  <div class="container px-4 px-sm-0">
+  <div class="container-fluid px-5">
     <div class="row">
-      <div class="col-lg-3 mb-4 d-flex flex-column">
+      <div class="col-lg-2 mb-4 d-flex flex-column">
 
         <div class="accordion mb-4" id="accordionExample">
           <div class="accordion-item">
@@ -46,96 +46,18 @@
 
       </div>
 
-      <div class="col-lg-9">
+      <div class="col-lg-10">
+       
         <div class="row">
-          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-            <div>
-              <div class="mb-2 position-relative">
-
-                <img src="../../../assets/1.jpg" class="w-100 h-100" alt="">
-
-                <i class="fa-regular fa-heart fav pointer"></i>
-                <!-- <i class="fa-solid fa-heart"></i> -->
-                <i class="fa-solid fa-cart-plus cart pointer"></i>
-              </div> 
-              <p class="mb-2">Topman skinny suit jacket in black</p>   
-              <div class="d-flex justify-content-between mb-2">
-                <span>{{100 |currency }}</span>
-                <span>
-                  {{3.5}}
-                  <i class="fa-solid fa-star text-warning"></i>
-                </span>
-              </div>      
-            
-            </div>
-
+          
+        
+          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4" *ngFor="let product of products">
+            <app-product [product]="product" ></app-product>
           </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-            <div>
-              <div class="mb-2 position-relative">
+          
 
-                <img src="../../../assets/4.jpg" class="w-100 h-100" alt="">
+       
 
-                <i class="fa-regular fa-heart fav pointer"></i>
-                <!-- <i class="fa-solid fa-heart"></i> -->
-                <i class="fa-solid fa-cart-plus cart pointer"></i>
-              </div> 
-              <p class="mb-2">Topman skinny suit jacket in black</p>   
-              <div class="d-flex justify-content-between mb-2">
-                <span>{{100 |currency }}</span>
-                <span>
-                  {{3.5}}
-                  <i class="fa-solid fa-star text-warning"></i>
-                </span>
-              </div>      
-            
-            </div>
-
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-            <div>
-              <div class="mb-2 position-relative">
-
-                <img src="../../../assets/6.jpg" class="w-100 h-100" alt="">
-
-                <i class="fa-regular fa-heart fav pointer"></i>
-                <!-- <i class="fa-solid fa-heart"></i> -->
-                <i class="fa-solid fa-cart-plus cart pointer"></i>
-              </div> 
-              <p class="mb-2">Topman skinny suit jacket in black</p>   
-              <div class="d-flex justify-content-between mb-2">
-                <span>{{100 |currency }}</span>
-                <span>
-                  {{3.5}}
-                  <i class="fa-solid fa-star text-warning"></i>
-                </span>
-              </div>      
-            
-            </div>
-
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-            <div>
-              <div class="mb-2 position-relative">
-
-                <img src="../../../assets/8.jpg" class="w-100 h-100" alt="">
-
-                <i class="fa-regular fa-heart fav pointer"></i>
-                <!-- <i class="fa-solid fa-heart"></i> -->
-                <i class="fa-solid fa-cart-plus cart pointer"></i>
-              </div> 
-              <p class="mb-2">Topman skinny suit jacket in black</p>   
-              <div class="d-flex justify-content-between mb-2">
-                <span>{{100 |currency }}</span>
-                <span>
-                  {{3.5}}
-                  <i class="fa-solid fa-star text-warning"></i>
-                </span>
-              </div>      
-            
-            </div>
-
-          </div>
         </div>
       </div>
     </div>

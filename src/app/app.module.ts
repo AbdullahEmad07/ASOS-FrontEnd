@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProductComponent } from './Components/product/product.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ProfileComponent } from './Components/profile/profile.component';
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    HttpClientModule
     
   ],
   providers: [],
