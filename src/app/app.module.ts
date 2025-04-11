@@ -24,6 +24,8 @@ import { UserOrdersComponent } from './Components/user-orders/user-orders.compon
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';   
+
 
 
 
@@ -56,7 +58,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    ShoppingCartModule   
+
     
   ],
   providers: [],
