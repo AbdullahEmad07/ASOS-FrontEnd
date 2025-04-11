@@ -3,7 +3,7 @@ import { Component, OnInit , ViewChild ,ElementRef ,Renderer2} from '@angular/co
 @Component({
   selector: 'app-Women',
   templateUrl: './Women.component.html',
-  styleUrls: ['./Women.component.css']
+  styleUrls: ['./women.component.css']
 })
 export class WomenComponent implements OnInit {
   @ViewChild('mediaCarousel', { static: false }) mediaCarousel!: ElementRef;
