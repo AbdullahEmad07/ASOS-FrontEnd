@@ -290,3 +290,51 @@ picture span a{
   height: 30px;
 }
 
+/* /////////////// */
+
+.category-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f3f3f3;
+}
+
+.category-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.category-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  width: 250px;
+  height: 120px;
+  border-radius: 40px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.category-card:hover {
+  transform: translateY(-6px);
+}
+
+.category-card span {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
