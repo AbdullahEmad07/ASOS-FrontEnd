@@ -74,4 +74,9 @@ border-radius: 0;}
         /* border-bottom: 1px solid rgb(204, 202, 202); */
     }
 }
+nav{
+  position: static !important;
+  width: 100% !important;
+  height: 56,2px !important;
+}
 
