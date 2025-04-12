@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #525050;
+}
+
+.main-color {
+  background-color: var(--main-color);
+}
+
+.Active {
+  background-color: var(--main-color);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #f0f3f6;
+  background-color: #525050;
+  box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+.form-check-input:checked {
+  background-color: #525050;
+  border-color: #525050;
+}
+
+.fav {
+  position: absolute;
+  right: 0.625rem;
+  bottom: 0.625rem;
+  font-size: 1.5rem;
+  padding: 8px;
+  background-color: rgba(250, 250, 250, 0.9);
+  border-radius: 50%;
+}
+
+.cart {
+  position: absolute;
+  right: 0.625rem;
+  bottom: 4rem;
+  font-size: 1.5rem;
+  padding: 8px;
+  background-color: rgba(250, 250, 250, 0.9);
+  border-radius: 50%;
+}/*# sourceMappingURL=styles.css.map */
