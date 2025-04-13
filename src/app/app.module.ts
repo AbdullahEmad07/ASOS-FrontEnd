@@ -33,8 +33,6 @@ import { MenShoesSearchPipe } from './Pipes/men-shoes-search.pipe';
 import { MenAccessoriesSearchPipe } from './Pipes/men-accessories-search.pipe';
 import { WomenClothingSearchPipe } from './Pipes/women-clothing-search.pipe';
 import { WomenShoesSearchPipe } from './Pipes/women-shoes-search.pipe';
-import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pipe';
-import { SingleProductComponent } from './Components/single-product/single-product.component';   
 import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pipe';   
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SliderComponent } from './Components/slider/slider.component';
@@ -69,7 +67,6 @@ import { SliderComponent } from './Components/slider/slider.component';
     WomenClothingSearchPipe,
     WomenShoesSearchPipe,
     WomenAccessoriesSearchPipe,
-    SingleProductComponent,
     SliderComponent,
   ],
   imports: [
