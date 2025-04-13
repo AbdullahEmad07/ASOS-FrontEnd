@@ -36,6 +36,7 @@ import { WomenShoesSearchPipe } from './Pipes/women-shoes-search.pipe';
 import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pipe';   
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SliderComponent } from './Components/slider/slider.component';
+import { SingleProductComponent } from './Components/single-product/single-product.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { SliderComponent } from './Components/slider/slider.component';
     WomenShoesSearchPipe,
     WomenAccessoriesSearchPipe,
     SliderComponent,
+    SingleProductComponent,
   ],
   imports: [
     BrowserModule,
