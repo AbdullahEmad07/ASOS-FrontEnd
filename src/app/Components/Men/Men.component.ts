@@ -1,11 +1,26 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, Renderer2, OnInit } from '@angular/core';
+import { MenProductsService } from '../../Services/men-products.service';
+import { IProduct } from '../../Models/iproduct';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+
 
 @Component({
   selector: 'app-men',
   templateUrl: './Men.component.html',
   styleUrls: ['./Men.component.css']
 })
-export class MenComponent implements AfterViewInit {
+export class MenComponent implements OnInit, AfterViewInit {
+
+  products:IProduct[] = [];
+  newInProducts:IProduct[]=[];
+
+  //pagination vars
+  pageSize: number = 20; // Number of items per page
+  currentPage: number = 1; // Current page number
+  totalItems: number = 60; // Total number of items (to be set after fetching data)
+
+
+
   @ViewChild('mediaCarousel', { static: false }) mediaCarousel!: ElementRef;
   @ViewChild('animatedText', { static: false }) animatedText!: ElementRef;
   likedIndexes = new Set<number>();
@@ -25,7 +40,45 @@ export class MenComponent implements AfterViewInit {
   currentTextIndex: number = 0;
   index: number = 0;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2 , private _MenProductsService:MenProductsService) {}
+ 
+  ngOnInit(): void {
+
+    this.GetMenNewInProducts();
+    this.GetAllMenProducts(1);
+   
+  };
+
+  GetMenNewInProducts() {
+    this._MenProductsService.getMenNewInProducts().subscribe({
+      next: (response) => {
+        this.newInProducts = response.data; // Assuming the API returns total items count
+        console.log(this.newInProducts);
+        
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    })
+  }
+
+  GetAllMenProducts(pageNum:number): void {
+    this._MenProductsService.getAllMenProducts(pageNum).subscribe({
+      next: (response) => {
+        this.products = response.data; // Assuming the API returns total items count
+        console.log(this.products);
+        
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  };
+
+  pageChanged(event:any){
+    this.currentPage = event;
+    this.GetAllMenProducts(event)
+  }
 
 
   ngAfterViewInit(): void {

@@ -12,6 +12,14 @@ export class MenProductsService {
   private baseUrl = environment.apiUrl; // Use the apiUrl from environment
   constructor(private _Http : HttpClient) { }
 
+  getAllMenProducts(pageNum : number = 1):Observable<any>{
+    return this._Http.get(`${this.baseUrl}/Men/products/${pageNum}`);
+  }
+
+  getMenNewInProducts():Observable<any>{
+    return this._Http.get(`${this.baseUrl}/Men/newin`);
+  }
+
   getMenClothingProducts():Observable<any> {
     return this._Http.get(`${this.baseUrl}/Men/clothing`);
   }
