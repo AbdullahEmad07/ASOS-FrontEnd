@@ -28,6 +28,7 @@ import {
     ]),
   ],
 })
+
 export class LoginComponent {
   isRegistered: boolean = false;
 
