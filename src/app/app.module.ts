@@ -33,7 +33,8 @@ import { MenShoesSearchPipe } from './Pipes/men-shoes-search.pipe';
 import { MenAccessoriesSearchPipe } from './Pipes/men-accessories-search.pipe';
 import { WomenClothingSearchPipe } from './Pipes/women-clothing-search.pipe';
 import { WomenShoesSearchPipe } from './Pipes/women-shoes-search.pipe';
-import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pipe';   
+import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pipe';
+import { SingleProductComponent } from './Components/single-product/single-product.component';   
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pip
     WomenClothingSearchPipe,
     WomenShoesSearchPipe,
     WomenAccessoriesSearchPipe,
+    SingleProductComponent,
   ],
   imports: [
     BrowserModule,
