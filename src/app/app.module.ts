@@ -34,6 +34,8 @@ import { MenAccessoriesSearchPipe } from './Pipes/men-accessories-search.pipe';
 import { WomenClothingSearchPipe } from './Pipes/women-clothing-search.pipe';
 import { WomenShoesSearchPipe } from './Pipes/women-shoes-search.pipe';
 import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pipe';   
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SliderComponent } from './Components/slider/slider.component';
 
 
 @NgModule({
@@ -65,6 +67,7 @@ import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pip
     WomenClothingSearchPipe,
     WomenShoesSearchPipe,
     WomenAccessoriesSearchPipe,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pip
     CarouselModule,
     HttpClientModule,
     FormsModule,
-    ShoppingCartModule
+    ShoppingCartModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

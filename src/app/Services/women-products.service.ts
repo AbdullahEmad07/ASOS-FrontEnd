@@ -13,6 +13,14 @@ export class WomenProductsService {
 
   constructor(private _Http : HttpClient) { }
 
+  getAllWomenProducts(pageNum : number = 1):Observable<any>{
+    return this._Http.get(`${this.baseUrl}/Woman/products/${pageNum}`);
+  }
+
+  getWomenNewInProducts():Observable<any>{
+    return this._Http.get(`${this.baseUrl}/Woman/newin`);
+  }
+
   GetWomenClothingProducts():Observable<any> {
     return this._Http.get(`${this.baseUrl}/Woman/clothing`);
   }

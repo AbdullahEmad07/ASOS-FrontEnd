@@ -1,0 +1,52 @@
+/* Owl Carousel Navigation Styles */
+.owl-nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .owl-prev, .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+    font-size: 24px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    z-index: 1;
+  }
+  
+  .owl-prev {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  .owl-next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .owl-prev:hover, .owl-next:hover {
+    background: rgba(0, 0, 0, 0.7) !important;
+  }
+  
+  /* Ensure the carousel items have proper height */
+  .owl-stage-outer {
+    height: 100%;
+  }
+  
+  .owl-item {
+    height: 100%;
+  }
+  
+  .owl-item img {
+    height: 100%;
+    object-fit: cover;
+  }
