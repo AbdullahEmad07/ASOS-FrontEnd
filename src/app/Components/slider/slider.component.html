@@ -1,0 +1,419 @@
+<div class="container-fluid px-5">
+    
+    <owl-carousel-o [options]="customOptions">
+    
+        <ng-container *ngFor="let slide of newInProducts">
+          <ng-template carouselSlide [id]="slide.id">
+            <img [src]="slide.imageUrls[0]"  [alt]="slide.name" [title]="slide.name">
+            <p class="ps-2 pe-5 mb-0">{{slide.name}}</p>
+            <span class="ps-2">{{slide.price|currency}}</span>
+          </ng-template>
+        </ng-container>
+    
+    </owl-carousel-o>
+
+</div>
+
+
+
+
+<!----- Alaa men Slider ----->
+    <!-- <div class="container  mt-4 d-none d-lg-block">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="media" class="carousel slide" data-bs-ride="carousel">
+    
+            <div class="carousel-indicators custom-indicators">
+              <button type="button" data-bs-target="#media" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#media" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#media" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#media" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div> 
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/207356751-1-brown.avif"></a>
+                    <div class="img-text">
+                      <p>ASOS DESIGN relaxed boxy fit knitted midweight cotton notch neck polo in brown</p>
+                      <span>$42.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/207948075-1-deserttaupe.avif"></a>
+                    <div class="img-text">
+                      <p>ASOS DESIGN slim pique short in khaki</p>
+                      <span>$31.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/207376030-1-brown.avif"></a>
+                    <div class="img-text">
+                      <p>ASOS DESIGN co-ord boxy revere shirt in brown</p>
+                      <span>$54.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/207301344-1-khaki.avif"></a>
+                    <div class="img-text">
+                      <p>ASOS DESIGN smart co-ord wide leg trousers in khaki peach feel texture with...</p>
+                      <span>$64.00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/208404501-1-white.avif"></a>
+                    <div class="img-text">
+                      <p>Reclaimed Vintage ribbed racer vest in white</p>
+                      <span>$27.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/208238890-1-lightbeige.avif"></a>
+                    <div class="img-text">
+                      <p>Mango linen mix chino shorts in light beige</p>
+                      <span>$61.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/208186960-1-beige.avif"></a>
+                    <div class="img-text">
+                      <p>ARKET regular fit linen shirt in beige</p>
+                      <span>$95.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/205814612-1-stone.avif"></a>
+                    <div class="img-text">
+                      <p>ASOS DESIGN parachute cargo iort in stone</p>
+                      <span class="color"><del>50.35</del> $28.42</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/208236214-1-lightbeige.avif"></a>
+                    <div class="img-text">
+                      <p>Mango knitted collored polo shirt in light beige</p>
+                      <span>$56.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/208220836-1-lightbrown.avif"></a>
+                    <div class="img-text">
+                      <p>ARKET cotton linen knitted shirt sleeve polo shirt in light brown</p>
+                      <span>$95.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/206494813-1-offwhite.avif"></a>
+                    <div class="img-text">
+                      <p>Weekday Seth linen blend trousers in off-white</p>
+                      <span class="color"><del>$94.75</del> $80.35</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/208256109-1-beige.avif"></a>
+                    <div class="img-text">
+                      <p>Mongo jersy waffle shorts in beige</p>
+                      <span>$51.00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/208006553-1-beige.avif"></a>
+                    <div class="img-text">
+                      <p>Fred Perry swim shorts in Light beige</p>
+                      <span>$100.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/207839253-1-brown.avif"></a>
+                    <div class="img-text">
+                      <p>Jimmy Fairly The Dareen square sunglasses in tortoiseshell</p>
+                      <span>$255.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/207765609-1-multi.avif"></a>
+                    <div class="img-text">
+                      <p>Another Influnces boxy fit striped revere shirt in multi</p>
+                      <span>$45.00</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <a class="thumbnail" href="#"><img alt="" src="/assets/206022957-1-black.avif"></a>
+                    <div class="img-text">
+                      <p>Topman plisse shorts in black</p>
+                      <span class="color"><del>$60.01</del> $48.95</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="hidden">
+              <button class="carousel-control-prev btn" type="button" data-bs-target="#media" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next btn" type="button" data-bs-target="#media" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="carouselExampleControls" class="carousel slide d-lg-none mt-5" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/assets/207356751-1-brown.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/207948075-1-deserttaupe.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/207376030-1-brown.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/207301344-1-khaki.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/208404501-1-white.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/208238890-1-lightbeige.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/208256109-1-beige.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/207839253-1-brown.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/207765609-1-multi.avif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/206022957-1-black.avif" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div> -->
+
+<!----- Alaa Women Slider ----->
+<!-- <div class="container mt-4 d-none d-lg-block">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="media" class="carousel slide" data-bs-ride="carousel">
+  
+          <div class="carousel-indicators custom-indicators">
+            <button type="button" data-bs-target="#media" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#media" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#media" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#media" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women1.avif"></a>
+                  <div class="img-text">
+                    <p>ASOS DESIGN Curve hybrid corset bias midaxi dress in ochre</p>
+                    <span>$100.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women2.avif"></a>
+                  <div class="img-text">
+                    <p>TFNC Petite Bridesmaid satin high neck maxi dress with bow back in lemon</p>
+                    <span>$125.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women3.avif"></a>
+                  <div class="img-text">
+                    <p>ASOS DESIGN Curve long sleeved v neck maxi dress with tie details in olive</p>
+                    <span>$92.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women4.avif"></a>
+                  <div class="img-text">
+                    <p>New Look bardot satin midaxi dress in yellow</p>
+                    <span>$45.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women5.avif"></a>
+                  <div class="img-text">
+                    <p>Forever New linen contrast stitch midaxi dress in lemon</p>
+                    <span>$184.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women6.avif"></a>
+                  <div class="img-text">
+                    <p>Hollister open back maxi dress with thigh split in yellow ditsy floral print</p>
+                    <span>$79.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women7.avif"></a>
+                  <div class="img-text">
+                    <p>ASOS DESIGN 3D flower draped ruffle sleeve midaxi...</p>
+                    <span>$185.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women8.avif"></a>
+                  <div class="img-text">
+                    <p>ASOS DESIGN narrow pintuck bodice dress with tie straps in white</p>
+                    <span>$97.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women9.avif"></a>
+                  <div class="img-text">
+                    <p>Pull&Bear corset detail mini dress in white</p>
+                    <span>$53.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women10.avif"></a>
+                  <div class="img-text">
+                    <p>ASOS DESIGN v neck waisted button down midi dress in off white</p>
+                    <span>$67.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women11.avif"></a>
+                  <div class="img-text">
+                    <p>The Frolic exclusive poplin ruched bust dropped waist...</p>
+                    <span>$83.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women12.avif"></a>
+                  <div class="img-text">
+                    <p>Pretty Lavish one shoulder asymmetric ruffle maxi dress in pink</p>
+                    <span>$154.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women13.avif"></a>
+                  <div class="img-text">
+                    <p>YAS satin wrap midi dress in lilas pink</p>
+                    <span>$119.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women14.avif"></a>
+                  <div class="img-text">
+                    <p>Vila wrap full maxi dress in dusty pink</p>
+                    <span>$100.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women15.avif"></a>
+                  <div class="img-text">
+                    <p>Vila satin cowl neck maxi dress in orchid pink</p>
+                    <span>$67.00</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <a class="thumbnail" href="#"><img alt="" src="/assets/women16.avif"></a>
+                  <div class="img-text">
+                    <p>Vila bandeau maxi dress with straps in rose</p>
+                    <span >$92.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="hidden">
+            <button class="carousel-control-prev btn" type="button" data-bs-target="#media" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next btn" type="button" data-bs-target="#media" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="carouselExampleControls" class="carousel slide d-lg-none mt-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/assets/women1.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women2.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women3.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women4.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women5.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women6.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women7.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women8.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women10.avif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/women13.avif" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->

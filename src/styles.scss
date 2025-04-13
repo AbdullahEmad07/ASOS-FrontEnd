@@ -55,4 +55,10 @@
 }
 
 
-
+.ngx-pagination .current {
+    padding: .2rem .65rem;
+    background-color: rgb(82, 80, 80) !important;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 50%;
+}
