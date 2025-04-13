@@ -29,6 +29,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MenClothingSearchPipe } from './Pipes/men-clothing-search.pipe';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
+import { MenShoesSearchPipe } from './Pipes/men-shoes-search.pipe';
+import { MenAccessoriesSearchPipe } from './Pipes/men-accessories-search.pipe';
+import { WomenClothingSearchPipe } from './Pipes/women-clothing-search.pipe';
+import { WomenShoesSearchPipe } from './Pipes/women-shoes-search.pipe';
+import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pipe';   
+
 
 @NgModule({
   declarations: [
@@ -54,6 +60,11 @@ import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
     ProductComponent,
     ProfileComponent,
     MenClothingSearchPipe,
+    MenShoesSearchPipe,
+    MenAccessoriesSearchPipe,
+    WomenClothingSearchPipe,
+    WomenShoesSearchPipe,
+    WomenAccessoriesSearchPipe,
   ],
   imports: [
     BrowserModule,

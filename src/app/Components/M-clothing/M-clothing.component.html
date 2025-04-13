@@ -15,7 +15,7 @@
                 <ul class="list-unstyled">
 
                   <li class="form-check form-switch mb-2">
-                    <input class="form-check-input" type="radio" id="All" name="men-clothing-SubCats" value="" (input)="GetAllClothingProducts()">
+                    <input class="form-check-input" type="radio" id="All" name="men-clothing-SubCats" value="" (input)="GetAllClothingProducts()" checked>
                     <label class="form-check-label fw-medium ms-2" for="All">ِAll</label>
                   </li>
                   <li class="form-check form-switch mb-2">
@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <input type="search" [(ngModel)]="searchWord" (input)="print()" placeholder="Search For Product ... " class="form-control rounded-5 ps-4">
+        <input type="search" [(ngModel)]="searchWord" placeholder="Search For Product ... " class="form-control rounded-5 ps-4">
 
 
       </div>

@@ -1,48 +1,20 @@
 <Section>
   <div class="container px-4">
     <div class="row">
-          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-            <div>
-              <div class="mb-2">
-                <img src="../../../assets/M-B 1.png" class="w-100 img-h shadow rounded-5" alt="">
-              </div> 
-              <p class="mb-2 text-center fw-medium">Adidas</p>       
-            </div>
+         
+      @for(brand of brandsArr ; track brand){
 
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-            <div>
-              <div class="mb-2">
-
-                <img src="../../../assets/W-B 1.png" class="w-100 img-h shadow rounded-5" alt="">
-
-              </div> 
-              <p class="mb-2 text-center fw-medium">New Look</p>     
-            </div>
-
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-            <div>
-              <div class="mb-2 ">
-                <img src="../../../assets/M-B 3.png" class="w-100 img-h shadow rounded-5" alt="">
-              </div> 
-              <p class="mb-2 text-center fw-medium">New Balance</p>   
-              
-            </div>
-
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-            <div>
-              <div class="mb-2">
-                <img src="../../../assets/W-B 2.jpg" class="w-100 img-h shadow rounded-5" alt="">
-              </div> 
-              <p class="mb-2 text-center fw-medium">River Island</p>   
-             
-            </div>
-
-          </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4 brand pointer">
+              <div>
+                <div class="mb-2">
+                  <img [src]="brand.brandImage" class="w-100 img-h shadow rounded-5" alt="">
+                </div> 
+                <p class="mb-2 text-center fw-medium">{{brand.name}}</p>       
+              </div>
+  
+        </div>
+      }
         
-      
     </div>
   </div>
 </Section>
