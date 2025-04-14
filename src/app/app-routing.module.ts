@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent} from './Components/Home/Home.component';
 import { MenComponent } from './Components/Men/Men.component';
@@ -13,6 +13,7 @@ import { WBrandsComponent } from './Components/W-Brands/W-Brands.component';
 import { MAccessoriesComponent } from './Components/M-Accessories/M-Accessories.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/Register/Register.component';
+import { SingleProductComponent } from './Components/single-product/single-product.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:"women-shoes" , component: WShoesComponent , title:"Women Shoes"},
   {path:"women-accessories" , component: WAccessoriesComponent , title:"Women Accessories"},
   {path:"women-brands" , component:WBrandsComponent , title : "Women Brands"},
+  {path:"single-product/:productId/:productName" , component:SingleProductComponent , title : "Product Details"},
   {path:"login" , component:LoginComponent , title: "Login" },
   {path:"register" , component:RegisterComponent , title: "Register"},
 
