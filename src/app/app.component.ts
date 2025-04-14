@@ -10,7 +10,6 @@ import { SingleProductComponent } from "./Components/single-product/single-produ
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [SingleProductComponent],
 })
 export class AppComponent {
   title = 'asos';

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './single-product.component.scss'
 })
 export class SingleProductComponent {
+  mainImage: string = '../../../assets/1.jpg';
+  thumbnails: string[] = [
+    '../../../assets/2.jpg',
+    '../../../assets/11.jpg',
+    './../../assets/2.jpg',
+    '../../../assets/3.jpg'
+  ];
 
+  setMainImage(image: string) {
+    this.mainImage = image;
+  }
 }
