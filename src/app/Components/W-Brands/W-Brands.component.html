@@ -7,7 +7,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4 brand pointer">
               <div>
                 <div class="mb-2">
-                  <img [src]="brand.brandImage" class="w-100 img-h shadow rounded-5" alt="">
+                  <img [src]="brand.brandImage" class="w-100 img-h shadow rounded-5 pointer" [alt]="brand.name" [routerLink]="['/w-brand-products' , brand.name]">
                 </div> 
                 <p class="mb-2 text-center fw-medium">{{brand.name}}</p>       
               </div>

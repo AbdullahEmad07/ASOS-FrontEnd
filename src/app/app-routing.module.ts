@@ -14,6 +14,8 @@ import { MAccessoriesComponent } from './Components/M-Accessories/M-Accessories.
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/Register/Register.component';
 import { SingleProductComponent } from './Components/single-product/single-product.component';
+import { MBrandProductsComponent } from './Components/mbrand-products/mbrand-products.component';
+import { WBrandProductsComponent } from './Components/wbrand-products/wbrand-products.component';
 
 
 const routes: Routes = [
@@ -25,10 +27,12 @@ const routes: Routes = [
   {path:"men-shoes" , component: MShoesComponent , title:"Men Shoes"},
   {path:"men-accessories" , component: MAccessoriesComponent , title:"Men Accessories"},
   {path:"men-brands" , component:MBrandsComponent , title : "Men Brands"},
+  {path:"m-brand-products/:brandName" , component:MBrandProductsComponent , title : "Brand Products"},
   {path:"women-clothing" , component: WClothingComponent , title:"Women Clothing"},
   {path:"women-shoes" , component: WShoesComponent , title:"Women Shoes"},
   {path:"women-accessories" , component: WAccessoriesComponent , title:"Women Accessories"},
   {path:"women-brands" , component:WBrandsComponent , title : "Women Brands"},
+  {path:"w-brand-products/:brandName" , component:WBrandProductsComponent , title : "Brand Products"},
   {path:"single-product/:productId/:productName" , component:SingleProductComponent , title : "Product Details"},
   {path:"login" , component:LoginComponent , title: "Login" },
   {path:"register" , component:RegisterComponent , title: "Register"},

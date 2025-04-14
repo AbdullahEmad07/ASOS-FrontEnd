@@ -37,6 +37,8 @@ import { WomenAccessoriesSearchPipe } from './Pipes/women-accessories-search.pip
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SliderComponent } from './Components/slider/slider.component';
 import { SingleProductComponent } from './Components/single-product/single-product.component';
+import { MBrandProductsComponent } from './Components/mbrand-products/mbrand-products.component';
+import { WBrandProductsComponent } from './Components/wbrand-products/wbrand-products.component';
 
 
 @NgModule({
@@ -70,6 +72,8 @@ import { SingleProductComponent } from './Components/single-product/single-produ
     WomenAccessoriesSearchPipe,
     SliderComponent,
     SingleProductComponent,
+    MBrandProductsComponent,
+    WBrandProductsComponent,
   ],
   imports: [
     BrowserModule,
