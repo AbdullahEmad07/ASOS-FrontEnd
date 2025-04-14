@@ -4,7 +4,7 @@
     
         <ng-container *ngFor="let slide of newInProducts">
           <ng-template carouselSlide [id]="slide.id">
-            <img [src]="slide.imageUrls[0]"  [alt]="slide.name" [title]="slide.name">
+            <img [src]="slide.imageUrls[0]"  [alt]="slide.name" class="pointer" [title]="slide.name" [routerLink]="['/single-product' , slide.id , slide.name]">
             <p class="ps-2 pe-5 mb-0">{{slide.name}}</p>
             <span class="ps-2">{{slide.price|currency}}</span>
           </ng-template>

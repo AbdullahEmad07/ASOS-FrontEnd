@@ -14,25 +14,31 @@ export class MenProductsService {
 
   getAllMenProducts(pageNum : number = 1):Observable<any>{
     return this._Http.get(`${this.baseUrl}/Men/products/${pageNum}`);
-  }
+  };
 
   getMenNewInProducts():Observable<any>{
     return this._Http.get(`${this.baseUrl}/Men/newin`);
-  }
+  };
 
   getMenClothingProducts():Observable<any> {
     return this._Http.get(`${this.baseUrl}/Men/clothing`);
-  }
+  };
 
   getMenShoesProducts():Observable<any>{
     return this._Http.get(`${this.baseUrl}/Men/shoes`);
-  }
+  };
 
   getMenAccessoriesProducts():Observable<any>{
     return this._Http.get(`${this.baseUrl}/Men/accessories`);
-  }
+  };
 
   getMenBrands():Observable<any>{
     return this._Http.get(`${this.baseUrl}/Men/brands`)
-  }
+  };
+
+  getMenBrandProducts(brandName:string):Observable<any>{
+    return this._Http.get(`${this.baseUrl}/Men/${brandName}`)
+  };
+
+  
 }

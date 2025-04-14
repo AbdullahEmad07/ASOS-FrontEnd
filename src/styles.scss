@@ -34,6 +34,25 @@
     border-color:#525050; 
 }
 
+.ngx-pagination .current {
+    padding: .2rem .65rem;
+    background-color: rgb(82, 80, 80) !important;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 50%;
+}
+
+.z-9999{
+    z-index: 9999999;
+}
+
+
+
+
+
+
+
+
 .fav{
     position: absolute;
     right: .625rem;
@@ -51,14 +70,5 @@
     font-size: 1.5rem;
     padding: 8px;
     background-color: rgba(250, 250, 250, 0.9);
-    border-radius: 50%;
-}
-
-
-.ngx-pagination .current {
-    padding: .2rem .65rem;
-    background-color: rgb(82, 80, 80) !important;
-    color: #fefefe;
-    cursor: default;
     border-radius: 50%;
 }
