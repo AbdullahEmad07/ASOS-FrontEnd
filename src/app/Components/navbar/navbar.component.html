@@ -18,10 +18,10 @@
     </div>
 
     <div class="d-lg-none">
-        <i class="fa-regular fa-heart text-light fs-5 pointer mx-2"></i>
+        <i class="fa-regular fa-heart text-light fs-5 pointer mx-2" routerLink="/wish-list"></i>
 
         <i class="fa-solid fa-bag-shopping position-relative text-light fs-3 mx-2 pointer">
-          <span class="badge cart-num" *ngIf="enableNavbar">{{5}}</span>  
+          <span class="badge cart-num" *ngIf="enableNavbar" routerLink="/shopping-cart/cart">{{5}}</span>  
           <span class="badge cart-num" *ngIf="!enableNavbar"></span>
         </i>
     </div>

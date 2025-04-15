@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SingleProductService } from '../../Services/single-product.service';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from '../../Models/iproduct';
+import { WishListService } from '../../Services/wish-list.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-single-product',
@@ -23,7 +25,7 @@ export class SingleProductComponent implements OnInit {
 
 
 
-  constructor(private _SingleProductService:SingleProductService , private _ActivatedRoute:ActivatedRoute){}
+  constructor(private _SingleProductService:SingleProductService , private _ActivatedRoute:ActivatedRoute , private _WishListService: WishListService , private toastr: ToastrService){}
 
   ngOnInit(): void {
     this.productId = this._ActivatedRoute.snapshot.params['productId']
@@ -43,6 +45,22 @@ export class SingleProductComponent implements OnInit {
       }
 
     })
+  }
+
+
+  AddToWishList(productId:any){
+    this._WishListService.addToWishList(productId).subscribe({
+      next: (response) => { 
+       
+        this.showSuccess()
+        console.log(response); 
+      },
+      error : (err) => { console.log(err) ;}
+    })
+  }
+
+  showSuccess() {
+    this.toastr.success('Product Added To Wish List');
   }
 
   setMainImage(image: string) {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -13,25 +13,44 @@ export class WishListService {
 
   constructor(private _Http:HttpClient) { }
 
-  addTowishList(productId:any){
-    const token = localStorage.getItem('token'); 
-    
-    if (!token) {
-      throw new Error('No token found');
-    }
-
-    console.log(jwtDecode(token)); // Fixed: Use token variable instead of 'token' string
-    
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
+  private getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
     });
-  
-    return this._Http.post(
-      `${this.baseUrl}/WishList/products/${productId}`, 
-      {}, // Empty body
-      { headers } // Correct way to send headers
-    );
   }
+
+  addToWishList(productId: string): Observable<any> {
+    return this._Http.post(`${this.baseUrl}/WishList/products/${productId}`, {}, {
+      headers: this.getHeaders()
+    });
+  };
+
+  removeFromWishList(productId: string): Observable<any> {
+    return this._Http.delete(`${this.baseUrl}/WishList/products/${productId}`, {
+      headers: this.getHeaders()
+    });
+  };
+
+
+getWishListProducts(): Observable<any> {
+  return this._Http.get(`${this.baseUrl}/WishList/products`, {
+    headers: this.getHeaders()
+  }).pipe(
+    tap({
+      next: (response) => console.log('Wishlist Response:', response),
+      error: (error) => console.error('Wishlist Error:', error)
+    })
+  );
+}
+
+
+
+
+
+
+
+
 
 
   addTowishList2(productId:string):Observable<any>{
