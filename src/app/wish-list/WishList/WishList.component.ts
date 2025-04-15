@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WishListService } from '../../Services/wish-list.service';
 import { IProduct } from '../../Models/iproduct';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -13,7 +14,7 @@ export class WishListComponent implements OnInit {
   wishListProducts:IProduct[] = [] ;
   isLoading: boolean = false;
 
-  constructor(private wishListService: WishListService) { }
+  constructor(private wishListService: WishListService , private toastr: ToastrService) { }
 
   ngOnInit() {
     this.loadWishListProducts();
@@ -40,6 +41,7 @@ export class WishListComponent implements OnInit {
   removeFromWishList(productId: string) {
     this.wishListService.removeFromWishList(productId).subscribe({
       next: () => {
+        this.showError();
         this.loadWishListProducts();
       },
       error: (error) => {
@@ -47,4 +49,13 @@ export class WishListComponent implements OnInit {
       }
     });
   }
+
+
+showSuccess() {
+  this.toastr.success('Product Added To Wish List');
+}
+
+showError() {
+  this.toastr.error('Product Removed To Wish List');
+}
 }
