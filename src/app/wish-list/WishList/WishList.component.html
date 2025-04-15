@@ -1,93 +1,35 @@
-
 <div>
-    <h1 class=" wishList-title">Saved Items</h1>
+  <h1 class="wishList-title">Saved Items</h1>
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-          <div>
-            <div class="mb-2 position-relative">
-
-              <img src="../../../assets/1.jpg" class="w-100 h-100" alt="">
-
-              <i class="fa-solid fa-trash fav pointer"></i>
-              <i class="fa-solid fa-cart-plus cart pointer"></i>
-            </div> 
-            <p class="mb-2">Topman skinny suit jacket in black</p>   
-            <div class="d-flex justify-content-between mb-2">
-              <span>{{100 |currency }}</span>
-              <span>
-                {{3.5}}
-                <i class="fa-solid fa-star text-warning"></i>
-              </span>
-            </div>      
-          
-          </div>
-
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-          <div>
-            <div class="mb-2 position-relative">
-
-              <img src="../../../assets/4.jpg" class="w-100 h-100" alt="">
-
-              <i class="fa-solid fa-trash fav pointer"></i>
-              <i class="fa-solid fa-cart-plus cart pointer"></i>
-            </div> 
-            <p class="mb-2">Topman skinny suit jacket in black</p>   
-            <div class="d-flex justify-content-between mb-2">
-              <span>{{100 |currency }}</span>
-              <span>
-                {{3.5}}
-                <i class="fa-solid fa-star text-warning"></i>
-              </span>
-            </div>      
-          
-          </div>
-
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-          <div>
-            <div class="mb-2 position-relative">
-
-              <img src="../../../assets/6.jpg" class="w-100 h-100" alt="">
-
-              <i class="fa-solid fa-trash fav pointer"></i>
-              <i class="fa-solid fa-cart-plus cart pointer"></i>
-            </div> 
-            <p class="mb-2">Topman skinny suit jacket in black</p>   
-            <div class="d-flex justify-content-between mb-2">
-              <span>{{100 |currency }}</span>
-              <span>
-                {{3.5}}
-                <i class="fa-solid fa-star text-warning"></i>
-              </span>
-            </div>      
-          
-          </div>
-
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
-          <div>
-            <div class="mb-2 position-relative">
-
-              <img src="../../../assets/8.jpg" class="w-100 h-100" alt="">
-
-              <i class="fa-solid fa-trash fav pointer"></i>
-              <i class="fa-solid fa-cart-plus cart pointer"></i>
-            </div> 
-            <p class="mb-2">Topman skinny suit jacket in black</p>   
-            <div class="d-flex justify-content-between mb-2">
-              <span>{{100 |currency }}</span>
-              <span>
-                {{3.5}}
-                <i class="fa-solid fa-star text-warning"></i>
-              </span>
-            </div>      
-          
-          </div>
-
-        </div>
+  <div *ngIf="isLoading" class="text-center">
+      <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
       </div>
+  </div>
+
+  <div *ngIf="!isLoading && wishListProducts.length === 0" class="text-center vh-100 d-flex justify-content-center align-items-center">
+      <h3 class="text-danger fs-1 fw-medium">Your Wish List is empty .. </h3>
+  </div>
+
+  <div *ngIf="!isLoading && wishListProducts.length > 0" class="row">
+      <div *ngFor="let product of wishListProducts" class="col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
+          <div>
+              <div class="mb-2 position-relative">
+                  <img [src]="product.imageUrls[0]" class="w-100 h-100" [alt]="product.name">
+                  <i class="fa-solid fa-trash fav pointer" (click)="removeFromWishList(product.id)"></i>
+                  <i class="fa-solid fa-cart-plus cart pointer"></i>
+              </div> 
+              <p class="mb-2">{{product.name}}</p>   
+              <div class="d-flex justify-content-between mb-2">
+                  <span>{{product.price | currency }}</span>
+                  <span>
+                      {{product.rate}}
+                      <i class="fa-solid fa-star text-warning"></i>
+                  </span>
+              </div>      
+          </div>
+      </div>
+   </div>
 </div>

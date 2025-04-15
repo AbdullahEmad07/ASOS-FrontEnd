@@ -1,8 +1,8 @@
 <div class="wrapper mt-0 pt-0">
       <div class="contain">
         <div class="top">
-          <i class="fa-regular fa-heart fa-2x m-2" (click)="AddToWishList(product.id)"></i>
-          <!-- <i class="fa-solid fa-heart-circle-check fa-2x m-2"></i> -->
+          <i class="fa-regular fa-heart fa-2x m-2" (click)="AddToWishList(product.id)" *ngIf="!isAddedToWishList"></i>
+          <i class="fa-solid fa-heart-circle-check fa-2x m-2" (click)="removeFromWishList(product.id)" *ngIf="isAddedToWishList" ></i>
           <img [src]="product.imageUrls[0]" [alt]="product.name" class="w-100 pointer" loading="lazy" [routerLink]='["/single-product" , product.id , product.name]'>
         </div>
         <div class="bottom ">
