@@ -16,7 +16,17 @@ export class AuthenService {
 
   private baseUrl = environment.apiUrl; // Use the apiUrl from environment
   
-  constructor(private _Http:HttpClient , private _Router : Router) { }
+  constructor(private _Http:HttpClient , private _Router : Router) {
+
+    if(localStorage.getItem('token')){
+        this.isLogin.next(true);
+        _Router.navigate(['home']);
+      }
+
+    }
+    
+
+   
 
   signUp(user:IUser):Observable<any>{
     return this._Http.post(`${this.baseUrl}/users/register` , user)

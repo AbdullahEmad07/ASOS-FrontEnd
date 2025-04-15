@@ -1,6 +1,8 @@
 import { Component ,ElementRef, ViewChild, Renderer2, AfterViewInit, OnInit, Input  } from '@angular/core';
 import { MenProductsService } from '../../Services/men-products.service';
 import { IProduct } from '../../Models/iproduct';
+import { WishListService } from '../../Services/wish-list.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-product',
@@ -10,12 +12,29 @@ import { IProduct } from '../../Models/iproduct';
 export class ProductComponent implements OnInit, AfterViewInit  {
  
   @Input() product: IProduct = {} as IProduct; 
+  loggedUserToken:any;
 
-  constructor(private _MenProductsService:MenProductsService ){}
+  constructor(private _MenProductsService:MenProductsService  , private _WishListService : WishListService){}
 
   ngOnInit(): void {
-   
+    this.loggedUserToken=localStorage.getItem('token')
+
+
   }
+
+  AddToWishList(productId:any ){
+    this._WishListService.addTowishList(productId).subscribe({
+      next: (response) => { console.log(response);
+      },
+      error : (err) => {
+        console.log(this.loggedUserToken);
+        
+        console.log(err)
+        ;}
+      
+    })
+  }
+
 
   ngAfterViewInit(): void {
     const wrappers = document.querySelectorAll('.wrapper');
