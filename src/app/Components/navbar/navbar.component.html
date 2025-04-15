@@ -21,7 +21,8 @@
         <i class="fa-regular fa-heart text-light fs-5 pointer mx-2"></i>
 
         <i class="fa-solid fa-bag-shopping position-relative text-light fs-3 mx-2 pointer">
-          <span class="badge cart-num">{{5}}</span>
+          <span class="badge cart-num" *ngIf="enableNavbar">{{5}}</span>  
+          <span class="badge cart-num" *ngIf="!enableNavbar"></span>
         </i>
     </div>
 
@@ -50,16 +51,16 @@
             data-bs-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
-              <img src="../../../assets/placeholder.jpg" class="user-img" alt="">
+              <i class="fa-solid fa-user text-light fs-4 pointer"></i>      
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownId">
             <a class="dropdown-item"> <i class="fa-solid fa-circle-user me-2"></i> My Account</a>
 
-            <div class="d-flex">
+            <div class="d-flex" *ngIf="!enableNavbar">
               <a class="dropdown-item" routerLink="/login">Login</a> | <a class="dropdown-item" routerLink="/register">Register</a>
             </div>
 
-            <a class="dropdown-item"> <i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Log Out</a>
+            <a class="dropdown-item" *ngIf="enableNavbar" (click)="logOut()"> <i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Log Out</a>
 
           </div>
         </li>
@@ -68,7 +69,8 @@
         </li>
         <li class="nav-item text-light fs-3  pointer" routerLink="/shopping-cart/cart">
           <i class="fa-solid fa-bag-shopping position-relative">
-            <span class="badge cart-num">{{5}}</span>
+            <span class="badge cart-num" *ngIf="enableNavbar">{{5}}</span>  
+            <span class="badge cart-num" *ngIf="!enableNavbar"></span>
           </i>
         </li>
       </ul>
@@ -79,12 +81,12 @@
           <a class="dropdown-item">  My Account</a>
         </li>
         <li class="nav-item text-light mx-lg-4 mb-1 fs-6 pointer">
-          <div class="d-flex">
+          <div class="d-flex" *ngIf="!enableNavbar">
             <a class="dropdown-item pe-2" routerLink="/login">Login</a> | <a class="dropdown-item ps-2" routerLink="/register">Register</a>
           </div>
         </li>
-        <li class="nav-item text-light mx-lg-4 mb-1 fs-6 pointer">
-          <a class="dropdown-item"> Log Out</a>
+        <li class="nav-item text-light mx-lg-4 mb-1 fs-6 pointer" (click)="logOut()">
+          <a class="dropdown-item" *ngIf="enableNavbar"> Log Out</a>
         </li>
       </ul>
 

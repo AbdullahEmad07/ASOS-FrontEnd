@@ -26,7 +26,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProductComponent } from './Components/product/product.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenClothingSearchPipe } from './Pipes/men-clothing-search.pipe';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { MenShoesSearchPipe } from './Pipes/men-shoes-search.pipe';
@@ -84,7 +84,8 @@ import { WBrandProductsComponent } from './Components/wbrand-products/wbrand-pro
     HttpClientModule,
     FormsModule,
     ShoppingCartModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
