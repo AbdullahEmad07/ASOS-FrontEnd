@@ -1,11 +1,10 @@
- <div class="cart-wrap">
+<div class="cart-wrap">
   <div class="main-heading-container">
-    <div class="main-heading">My Bag</div>
+    <div class="main-heading">MY BAG</div>
   </div>
-  
-<!---Testtt-->
-   <div class="cart-grid">
-     <div class="cart-items">
+
+  <div class="cart-grid">
+    <div class="cart-items">
       <div *ngFor="let item of cartItems" class="cart-item">
         <img [src]="item.image" alt="{{ item.name }}" width="100" />
         <div class="details">
@@ -17,8 +16,8 @@
             <span>{{ item.quantity }}</span>
             <button (click)="increaseQuantity(item)">+</button>
           </div>
-          <button (click)="removeItem(item)">Remove</button>
         </div>
+        <button class="remove-btn" (click)="removeItem(item)">X</button>
       </div>
 
       <hr />
@@ -34,7 +33,7 @@
       </div>
     </div>
 
-     <div class="cart-summary">
+    <div class="cart-summary">
       <div class="cart-totals">
         <h3>TOTAL</h3>
         <table>
@@ -58,33 +57,18 @@
     </div>
   </div>
 
-   <div class="suggestions">
+  <div class="suggestions">
     <h4>A LITTLE SOMETHING EXTRA?</h4>
-    <div class="suggestion-items">
-      <div>
-        <img src="assets/2.jpg" alt="Anklet">
-        <p>$21.00</p>
-      </div>
-      <div>
-        <img src="assets/3.jpg" alt="Anklet">
-        <p>$13.50</p>
-      </div>
-      <div>
-        <img src="assets/4.jpg" alt="Anklet">
-        <p>$15.50</p>
-      </div>
-      <div>
-        <img src="assets/5.jpg" alt="Anklet">
-        <p>$7.00</p>
-      </div>
-      <div>
-        <img src="assets/6.jpg" alt="Anklet">
-        <p>$29.99</p>
-      </div>
-      <div>
-        <img src="assets/1.jpg" alt="Anklet">
-        <p>$9.50</p>
+    <div class="suggestion-slider">
+      <div class="suggestion-track">
+        <ng-container *ngFor="let suggestion of suggestionItems.concat(suggestionItems, suggestionItems)">
+          <div class="suggestion-item">
+            <img [src]="suggestion.image" alt="Anklet" />
+            <p>${{ suggestion.price }}</p>
+          </div>
+        </ng-container>
       </div>
     </div>
   </div>
+  
 </div>

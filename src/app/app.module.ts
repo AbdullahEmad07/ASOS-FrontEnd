@@ -39,6 +39,7 @@ import { SliderComponent } from './Components/slider/slider.component';
 import { SingleProductComponent } from './Components/single-product/single-product.component';
 import { MBrandProductsComponent } from './Components/mbrand-products/mbrand-products.component';
 import { WBrandProductsComponent } from './Components/wbrand-products/wbrand-products.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -85,7 +86,9 @@ import { WBrandProductsComponent } from './Components/wbrand-products/wbrand-pro
     FormsModule,
     ShoppingCartModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({timeOut:1500 , positionClass: 'toast-bottom-right'}), // ToastrModule added
+
   ],
   providers: [],
   bootstrap: [AppComponent]

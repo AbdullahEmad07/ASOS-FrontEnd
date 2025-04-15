@@ -2,12 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html',
+  templateUrl: './Cart.component.html',
   styleUrls: ['./Cart.component.css']
 })
 export class CartComponent implements OnInit {
    cartItems = [
     { name: 'Asos design Black dress', code: 'G2356', price: 1250, quantity: 1, image: 'https://i.pinimg.com/736x/9a/97/24/9a9724ce27d3a072b2e3dabbdc8cf6db.jpg' },
+   ];
+
+   suggestionItems = [
+    { image: 'https://i.pinimg.com/736x/9a/97/24/9a9724ce27d3a072b2e3dabbdc8cf6db.jpg', price: 20 },  // Replace with real image links
+    { image: 'https://i.pinimg.com/736x/9a/97/24/9a9724ce27d3a072b2e3dabbdc8cf6db.jpg', price: 30 },  // Replace with real image links
+    { image: 'https://i.pinimg.com/736x/9a/97/24/9a9724ce27d3a072b2e3dabbdc8cf6db.jpg', price: 40 },  // Replace with real image links
    ];
 
   couponCode: string = '';
