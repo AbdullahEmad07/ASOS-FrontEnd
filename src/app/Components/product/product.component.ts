@@ -10,33 +10,36 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './product.component.scss'
 })
 export class ProductComponent implements OnInit, AfterViewInit  {
- 
   @Input() product: IProduct = {} as IProduct; 
-  loggedUserToken:any;
-  // isAddedToWishList:boolean = false ;
-  wishListProductsId : any ;
+  loggedUserToken: string | null = null;
+  wishListProductsId: string[] = []; // Initialize as empty array
   
 
-  constructor(private _MenProductsService:MenProductsService  , private _WishListService : WishListService , private toastr: ToastrService){}
+  constructor(private _MenProductsService:MenProductsService, private _WishListService:WishListService,  private toastr:ToastrService){}
 
   ngOnInit(): void {
-    this.loggedUserToken=localStorage.getItem('token')
-    this.GetWishListProducts();
+    this.loggedUserToken = localStorage.getItem('token');
+    if (this.loggedUserToken) {
+      this.GetWishListProducts();
+    }
   }
 
-  AddToWishList(productId:any ){
+
+  AddToWishList(productId:any){
+    if (!this.loggedUserToken) {
+      this.toastr.error('Please login first');
+      return;
+    }
+
     this._WishListService.addToWishList(productId).subscribe({
       next: (response) => { 
-
-        this.showSuccess()
-        // console.log(response);   
-        this.GetWishListProducts();  
+        this.showSuccess();
+        this.GetWishListProducts();
       },
-      error : (err) => {
-        // console.log(this.loggedUserToken);
-        // console.log(err)
-        ;}
-    })
+      error: (err) => {
+        this.toastr.error('Failed to add to wishlist');
+      }
+    });
   }
 
   removeFromWishList(productId: string) {

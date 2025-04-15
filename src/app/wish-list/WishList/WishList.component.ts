@@ -13,10 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 export class WishListComponent implements OnInit {
   wishListProducts:IProduct[] = [] ;
   isLoading: boolean = false;
+  loggedUserToken: any;
 
   constructor(private wishListService: WishListService , private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.loggedUserToken = localStorage.getItem('token');
+
     this.loadWishListProducts();
   }
 
