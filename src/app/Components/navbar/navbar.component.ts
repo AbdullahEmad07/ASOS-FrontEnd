@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenService } from '../../Services/authen.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  enableNavbar : any ;
+
+  constructor(private _AuthenService:AuthenService) { }
 
   ngOnInit() {
+
+    let myToken = localStorage.getItem('token');
+
+    this._AuthenService.isLogin.subscribe({
+      next: (behaviorSubValue) =>{ 
+        this.enableNavbar = behaviorSubValue
+        console.log(behaviorSubValue);
+        
+      }
+    })
+
+
   }
 
+  logOut(){
+    this._AuthenService.logOut()
+  }
 }

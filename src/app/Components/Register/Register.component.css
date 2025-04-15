@@ -1,5 +1,4 @@
-
-* {
+*{
     box-sizing: border-box;
     margin: 0 ;
     padding: 0 ;
@@ -29,14 +28,13 @@
   }
   
   form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     padding: 10px;
   }
+
   label{
     display: block;
   }
+
   input[type="email"],
   input[type="password"],
   input[type="text"] {
@@ -44,6 +42,7 @@
     border: 1px solid #ccc;
     width: 80%;
   }
+
   input{
     outline: none;
     border-radius: 10px !important ;
@@ -126,13 +125,7 @@
     }
   }
   
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  
+ 
   .body {
     width: 65%;
     margin: auto;
@@ -142,14 +135,8 @@
     align-items: center;
     background-size: contain;
     animation: gradientAnimation 20s ease infinite;
-    transform: skewX(1.8deg);
-    box-shadow: 3px 3px 3px 3px grey;
-    margin-top: 100px;
-    border-radius: 15px;
-    padding: 0;
+    margin-top: 40px;
     font-family:sans-serif;
-  
-  
   }
   
   .login-container {
@@ -172,11 +159,10 @@
   }
   
   .image-container {
-    background: url('https://api2.illuminz.com/uploads/asos_success_story_f8eb22916b.webp') no-repeat center center;
+    background: url('../../../assets/Asos.png') no-repeat center center;
     background-size: cover;
     height: 100%;
     z-index: 999999;
-    border-radius: 10px;
     margin-right: -5px;
     width: 100%;
   }
@@ -192,11 +178,9 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
   }
   
   button {
-    align-self: flex-start;
     padding: 10px 20px;
     border: none;
     background-color: rgb(54, 52, 52);

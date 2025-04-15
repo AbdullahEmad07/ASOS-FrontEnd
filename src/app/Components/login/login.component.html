@@ -1,73 +1,97 @@
 <div class="main">
-<div class="body">
-  <div [class.registered]="isRegistered" class="login-container">
-    <div class="image-container"></div>
-
-    <div class="form-container" [ngClass]="{ 'animate-form': true }">
-      <!-- Login Form -->
-      <form *ngIf="!isRegistered">
-        <p class="subtitle">Welcome Back</p>
-        <label for="email">E-mail</label>
-        <div class="input-group">
-          <i class="fa fa-user"></i>
-          <input type="email" id="email" placeholder="name@example.com" />
-        </div>
-
-        <label for="password">
-          Password
-        </label>
-        <div class="input-group">
-          <i class="fa fa-lock"></i>
-          <input type="password" placeholder="Enter your password">
-          <a href="#" class="forgot">Forgot password?</a>
-        </div>
-
-        <div class="remember">
-          <input type="checkbox" id="remember" />
-          <label for="remember">Remember me for 30 days</label>
-        </div>
-
-        <button class="signin-btn">
-          Sign In
-        </button>
-        <p class="join-text">
-          Don't have an account?
-          <button type="button" (click)="toggleForm()">Sign Up</button>
-        </p>
-      </form>
-
-      <!-- Register Form -->
-      <form *ngIf="isRegistered">
-        <p class="subtitle">Join Us</p>
-
-        <div class="form-group">
-          <label for="name">Name</label>
-          <i class="fa fa-user"></i>
-          <input type="text" id="name" placeholder="Enter your Name" />
-        </div>
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <i class="fa-solid fa-envelope"></i>
-          <input type="email" id="email" placeholder="Enter your Email" />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <i class="fa fa-lock"></i>
-          <input type="password" id="password" placeholder="Enter your Password" />
-        </div>
-        <div class="form-group">
-          <label for="confirm">Confirm Password</label>
-          <i class="fa fa-lock"></i>
-          <input type="password" id="confirm" placeholder="Confirm your Password" />
-        </div>
-
-        <button class="btn btn-primary">Sign Up</button>
-        <p class="join-text">
-          You already have an account?
-          <button type="button" (click)="toggleForm()">Sign In</button>
-        </p>
-      </form>
+  <div class="body shadow-sm rounded-2 overflow-hidden">
+    <div [class.registered]="isRegistered" class="login-container">
+      <div class="image-container"></div>
+  
+      <div class="form-container text-center" [ngClass]="{ 'animate-form': true }">
+       
+        <!-- Login Form -->
+        <form *ngIf="!isRegistered" class="d-flex justify-content-center" [formGroup]="loginForm" (ngSubmit)="logIn(loginForm)">
+        
+          <p class="subtitle fs-3 fw-bold">Welcome Back</p>
+         
+          <div class="form-group mt-3">
+            <i class="fa fa-user me-2 mt-2"></i>
+            <input type="email" formControlName="email"  placeholder="name@example.com">
+          </div>
+  
+          <div class="form-group mt-3">
+            <i class="fa fa-lock me-2 mt-2"></i>
+            <input type="password" formControlName="password" placeholder="Enter your password">
+            <a href="#" class="forgot">Forgot password?</a>
+          </div>
+  
+              <p class="text-danger text-center my-2" *ngIf="loginForm.get('email')?.getError('email') && loginForm.get('password')?.getError('pattern')">Incorrect email or password</p>
+              <p class="text-danger text-center my-2" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.getError('required')  &&loginForm.get('password')?.touched &&loginForm.get('password')?.getError('required')  ">All field is required </p>
+              <p class="my-2 text-danger text-center">{{apiResponse}}</p>
+  
+        
+  
+          <button class="align-self-center mb-5" *ngIf="!isLoading else LogInloading"> LogIn </button>
+  
+          <p class="join-text">
+            Don't have an account?
+            <button type="button" (click)="toggleForm()">Sign Up</button>
+          </p>
+  
+        </form>
+  
+  
+  
+        <!-- Register Form -->
+        <form *ngIf="isRegistered" class="d-flex flex-column justify-content-center" [formGroup]="registerForm" (ngSubmit)="register(registerForm)" >
+          <p class="subtitle fs-3 fw-bold text-center">Join US</p>
+  
+          <div class="form-group mt-3">
+            <i class="fa fa-user me-2"></i>
+            <input type="text" id="name" formControlName="userName" placeholder="Enter your Name" />
+            <p class="text-danger text-center" *ngIf="registerForm.get('userName')?.getError('required') && registerForm.get('userName')?.touched">this field is required</p> 
+            <p class="text-danger" *ngIf="registerForm.get('userName')?.getError('minlength')">min length is 3</p>
+            <p class="text-danger" *ngIf="registerForm.get('userName')?.getError('maxlength')">max length is 16</p>
+          </div>
+  
+          <div class="form-group mt-3">
+            <i class="fa-solid fa-envelope me-2"></i>
+            <input type="email" id="email" formControlName="email" placeholder="Enter your Email" />
+            <p class="text-danger" *ngIf="registerForm.get('email')?.getError('required') && registerForm.get('email')?.touched">this field is required</p> 
+            <p class="text-danger" *ngIf="registerForm.get('email')?.getError('email')">please enter correct email</p>
+          </div>
+  
+          <div class="form-group mt-3">
+            <i class="fa fa-lock me-2"></i>
+            <input type="password" id="password" formControlName="password" placeholder="Enter your Password" />
+            <p class="text-danger" *ngIf="registerForm.get('password')?.getError('required') && registerForm.get('password')?.touched">this field is required</p> 
+            <p class="text-danger" *ngIf="registerForm.get('password')?.getError('pattern')">password must start with capital letter and between 5 to 16 character</p>
+        
+          </div>
+  
+          <div class="form-group mt-3">
+            <i class="fa fa-lock me-2"></i>
+            <input type="password" id="confirm" formControlName="rePassword" placeholder="Confirm your Password" />
+            <p class="text-danger" *ngIf="registerForm.get('rePassword')?.getError('required') && registerForm.get('rePassword')?.touched">this field is required</p> 
+            <p class="text-danger" *ngIf="registerForm.get('rePassword')?.value !== registerForm.get('password')?.value && registerForm.get('rePassword')?.touched">Repassword don't match Password</p> 
+          </div>
+  
+          <button class="align-self-center mt-4 mb-3" *ngIf="!isLoading else SignInloading">Sign Up</button>
+          <h3 class="text-danger text-center mt-2 ">{{apiResponse}}</h3>
+  
+        
+          <p class="join-text">
+            You already have an account?
+            <button type="button" (click)="toggleForm()">LogIn</button>
+          </p>
+        </form>
+      </div>
     </div>
   </div>
-</div>
-</div>
+  </div>
+  
+  
+  <ng-template #SignInloading>
+    <button class="align-self-center mt-4 mb-3"><i class="fa-solid fa-spinner fa-spin text-light"></i> Signing Up</button>
+  </ng-template>
+  
+  <ng-template #LogInloading>
+    <button class="align-self-center mb-5"><i class="fa-solid fa-spinner fa-spin"></i> login </button>
+  </ng-template>
+  
