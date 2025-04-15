@@ -113,6 +113,8 @@ export class LoginComponent {
                this._Router.navigate(['/home']);
              
                localStorage.setItem('token' , response.token.token)
+               console.log(response.token.token);
+               
  
              
  
