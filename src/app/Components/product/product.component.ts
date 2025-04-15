@@ -13,15 +13,15 @@ export class ProductComponent implements OnInit, AfterViewInit  {
  
   @Input() product: IProduct = {} as IProduct; 
   loggedUserToken:any;
-  isAddedToWishList:boolean = false ;
+  // isAddedToWishList:boolean = false ;
+  wishListProductsId : any ;
   
 
   constructor(private _MenProductsService:MenProductsService  , private _WishListService : WishListService , private toastr: ToastrService){}
 
   ngOnInit(): void {
     this.loggedUserToken=localStorage.getItem('token')
-
-
+    this.GetWishListProducts();
   }
 
   AddToWishList(productId:any ){
@@ -29,16 +29,12 @@ export class ProductComponent implements OnInit, AfterViewInit  {
       next: (response) => { 
 
         this.showSuccess()
-        console.log(response); 
-         if(response == 'Product added to wishlist.'){
-          this.isAddedToWishList = true ;
-         }
-         
+        // console.log(response);   
+        this.GetWishListProducts();  
       },
       error : (err) => {
-        console.log(this.loggedUserToken);
-        
-        console.log(err)
+        // console.log(this.loggedUserToken);
+        // console.log(err)
         ;}
     })
   }
@@ -46,9 +42,9 @@ export class ProductComponent implements OnInit, AfterViewInit  {
   removeFromWishList(productId: string) {
     this._WishListService.removeFromWishList(productId).subscribe({
       next: (response) => {
-        console.log(response);
-        this.showError()
-        
+        // console.log(response);
+        this.showError();
+        this.GetWishListProducts();          
       },
       error: (error) => {
         console.error('Error removing from wishlist:', error);
@@ -56,6 +52,22 @@ export class ProductComponent implements OnInit, AfterViewInit  {
     });
   }
 
+
+
+  GetWishListProducts(){
+    this._WishListService.getWishListProducts().subscribe({
+      next: (response) => { 
+        if (response && response.data) {
+          this.wishListProductsId = response.data.map((product: any) => product.id);
+          console.log('Wishlist product IDs:', this.wishListProductsId);
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching wishlist:', error);
+        this.toastr.error('Failed to fetch wishlist');
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
     const wrappers = document.querySelectorAll('.wrapper');
