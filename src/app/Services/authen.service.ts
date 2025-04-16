@@ -20,7 +20,7 @@ export class AuthenService {
 
     if(localStorage.getItem('token')){
         this.isLogin.next(true);
-        _Router.navigate(['home']);
+        // _Router.navigate(['home']);
       }
 
     }

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IProduct } from '../../Models/iproduct';
 import { WishListService } from '../../Services/wish-list.service';
 import { ToastrService } from 'ngx-toastr';
+import { ShoppingCartService } from '../../Services/shopping-cart.service';
 
 @Component({
   selector: 'app-single-product',
@@ -25,7 +26,7 @@ export class SingleProductComponent implements OnInit {
 
 
 
-  constructor(private _SingleProductService:SingleProductService , private _ActivatedRoute:ActivatedRoute , private _WishListService: WishListService , private toastr: ToastrService){}
+  constructor(private _SingleProductService:SingleProductService , private _ActivatedRoute:ActivatedRoute , private _WishListService: WishListService, private _ShoppingCartService : ShoppingCartService , private toastr: ToastrService){}
 
   ngOnInit(): void {
     this.productId = this._ActivatedRoute.snapshot.params['productId']
@@ -53,11 +54,21 @@ export class SingleProductComponent implements OnInit {
       next: (response) => { 
        
         this.showSuccess()
-        console.log(response); 
+        // console.log(response); 
       },
       error : (err) => { console.log(err) ;}
     })
   }
+
+  AddToCart(productId:any){
+    this._ShoppingCartService.addToCart(productId).subscribe({
+      next: (response) => {
+        this.toastr.success("Product Added To Cart")
+      },
+      error: (err) => { console.log(err)}
+    })
+  }
+
 
   showSuccess() {
     this.toastr.success('Product Added To Wish List');

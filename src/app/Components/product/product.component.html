@@ -5,22 +5,23 @@
           <i class="fa-solid fa-heart-circle-check fa-2x m-2" (click)="removeFromWishList(product.id)" *ngIf="wishListProductsId.includes(product.id)" ></i>
           <img [src]="product.imageUrls[0]" [alt]="product.name" class="w-100 pointer" loading="lazy" [routerLink]='["/single-product" , product.id , product.name]'>
         </div>
-        <div class="bottom ">
+        <div class="bottom" [class.clicked]="CartProductsId.includes(product.id)">
           <div class="left">
             <div class="details">
               <p class="d-block">{{product.name}}</p>
               <p class="mt-1">{{product.price|currency}}</p>
             </div>
             <div class="buy">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping" (click)="AddToCart(product.id)" *ngIf="!CartProductsId.includes(product.id)"></i>
             </div>
           </div>
+
           <div class="right">
             <div class="done"><i class="fa-solid fa-check"></i></div>
             <div class="details">
               <p>Added to your cart</p>
             </div>
-            <div class="remove"><i class="fa-solid fa-circle-xmark"></i></div>
+            <div class="remove"><i class="fa-solid fa-circle-xmark" (click)="removeFromCart(product.id)" *ngIf="CartProductsId.includes(product.id)"></i></div>
           </div>
         </div>
       </div>

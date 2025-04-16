@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WishListService } from '../../Services/wish-list.service';
 import { IProduct } from '../../Models/iproduct';
 import { ToastrService } from 'ngx-toastr';
+import { ShoppingCartService } from '../../Services/shopping-cart.service';
 
 
 
@@ -15,7 +16,7 @@ export class WishListComponent implements OnInit {
   isLoading: boolean = false;
   loggedUserToken: any;
 
-  constructor(private wishListService: WishListService , private toastr: ToastrService) { }
+  constructor(private wishListService: WishListService , private toastr: ToastrService , private _ShoppingCartService : ShoppingCartService) { }
 
   ngOnInit() {
     this.loggedUserToken = localStorage.getItem('token');
@@ -52,6 +53,21 @@ export class WishListComponent implements OnInit {
       }
     });
   }
+
+
+AddToCart(productId: string){
+  this._ShoppingCartService.addToCart(productId).subscribe({
+    next: (response) => {
+      this.toastr.success("Product Added to Cart");
+      this.removeFromWishList(productId)
+    },
+    error: (err) => {
+      this.toastr.error("Failed To Add To Cart")
+    }
+  })
+    
+  
+}
 
 
 showSuccess() {

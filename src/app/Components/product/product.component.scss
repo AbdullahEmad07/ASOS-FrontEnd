@@ -46,7 +46,7 @@ html, body{
     width:100%;
     height:100%;
     .top{
-      height: 70%;
+      height: 73%;
       width:100%;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
@@ -55,7 +55,7 @@ html, body{
     }
     .bottom{
       width: 200%;
-      height: 30%;
+      height: 27%;
       transition: transform 0.5s;
       &.clicked{
         transform: translateX(-50%);
