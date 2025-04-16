@@ -1,1 +1,40 @@
-<p>user-orders works!</p>
+<div class="container my-5">
+<div class="row">
+  <div class="col-lg-12">
+    <main class="orders">
+      <h1>Orders</h1>
+      <div class="order" *ngFor="let order of orders">
+        <div class="top-info">
+          <div>
+            <p><strong>ORDER PLACED</strong><br>{{ order.placed }}</p>
+            <p><strong>TOTAL</strong><br>{{ order.total }}</p>
+            <p><strong>SHIP TO</strong><br>{{ order.shipTo }}</p>
+          </div>
+          <div class="order-id">
+            order {{order.id}}<br>
+          </div>
+        </div>
+
+        <div class="order-body">
+          <img [src]="order.img" class="orderImg" alt="SIM" />
+          <div class="description">
+            <h3>{{ order.name }}</h3>
+            <p [innerText]="order.description"><i class="fa-solid fa-circle-dot feature-icon"></i></p>
+          </div>
+          <span class="status" [ngClass]="order.statusClass">{{ order.status }}</span>
+          <p class="qty">Qty: {{ order.quantity }}</p>
+          <div class="actions">
+            <button
+              *ngIf="order.name === '4 in 1 Commercial'"
+              class="register">REGISTER SIMS</button>
+            <button class="archive" (click)="archiveOrder(order.id)">ARCHIVE ORDER</button>
+          </div>
+        </div>
+
+        <p class="delivery">ESTIMATED DELIVERY: <strong>{{ order.delivery }}</strong></p>
+      </div>
+
+    </main>
+  </div>
+</div>
+</div>
