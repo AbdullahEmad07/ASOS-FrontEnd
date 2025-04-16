@@ -1,0 +1,20 @@
+<div class="payment-container">
+  <h2>Complete Your Payment</h2>
+  
+  <div class="card-container">
+    <div id="card-element">
+      <!-- Stripe Card Element will be inserted here -->
+    </div>
+    
+    <div id="card-errors" class="error-message" *ngIf="cardErrors">
+      {{ cardErrors }}
+    </div>
+  </div>
+
+  <button 
+    (click)="handlePayment()" 
+    [disabled]="loading"
+    class="pay-button">
+    {{ loading ? 'Processing...' : 'Pay Now' }}
+  </button>
+</div>

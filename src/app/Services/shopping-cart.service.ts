@@ -45,4 +45,6 @@ export class ShoppingCartService {
       headers: this.getHeaders()
     });
   }
+
+  // Remove createOrder and completeOrder methods
 }

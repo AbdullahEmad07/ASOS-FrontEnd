@@ -3,6 +3,9 @@ import { ShoppingCartService } from '../../Services/shopping-cart.service';
 import { IProduct } from '../../Models/iproduct';
 import { ToastrService } from 'ngx-toastr';
 import { ICartProduct } from '../../Models/icart-product';
+import { Router } from '@angular/router';
+import { OrderService } from '../../Services/order.service';
+declare var Stripe: any;
 
 @Component({
   selector: 'app-cart',
@@ -21,8 +24,18 @@ export class CartComponent implements OnInit {
   cartProducts : ICartProduct [] = [] ;
   isLoading: boolean = false;
   loggedUserToken: any;
+  address: string = '';
+  phoneNumber: string = '';
+  private stripe: any;
 
-  constructor(private _ShoppingCartService : ShoppingCartService ,  private toastr:ToastrService) {}
+  constructor(
+    private _ShoppingCartService: ShoppingCartService,
+    private orderService: OrderService,  // Add this injection
+    private toastr: ToastrService,
+    private router: Router
+  ) {
+    this.stripe = Stripe('your_publishable_key'); // Replace with your Stripe publishable key
+  }
 
   ngOnInit(): void {
     this.loggedUserToken = localStorage.getItem('token');
@@ -31,26 +44,28 @@ export class CartComponent implements OnInit {
 
   GetloggedUserCart(){
     this.isLoading=true;
-
+    
     this._ShoppingCartService.getCartProducts().subscribe({
       next: (response) => {
-        console.log(response);
+        if (response && response.cartId) {
+          localStorage.setItem('cartId', response.cartId);
+          console.log('Cart ID from response:', response.cartId);
+          console.log('Cart ID from localStorage:', localStorage.getItem('cartId'));
+        } else {
+          console.warn('No cartId in response:', response);
+        }
         
-        this.isLoading=false;
-
+        this.isLoading = false;
         this.cartProducts = response.data;
         this.totalPrice = response.totalPrice;
-        // this.totalCount = response.totalCount;
-
         this._ShoppingCartService.cartPtoductNum.next(response.totalCount);
-        // console.log(this.cartProducts , this.totalCount , this.totalPrice);
-
       },
-      error : (err)=>{
-        console.log(err);
-        this.isLoading=false;
+      error: (err) => {
+        console.error('Error fetching cart:', err);
+        this.isLoading = false;
       }
-    })
+    });
+
   }
 
   removeProduct(id:string){
@@ -113,5 +128,50 @@ export class CartComponent implements OnInit {
     
   }
 
-  
+  async checkout() {
+    if (!this.address || !this.phoneNumber) {
+      this.toastr.error('Please provide address and phone number');
+      return;
+    }
+
+    const cartId = localStorage.getItem('cartId');
+    if (!cartId) {
+      this.toastr.error('Cart ID not found');
+      return;
+    }
+
+    try {
+      // Create order with proper request format
+      const orderResponse = await this.orderService.createOrder(
+        cartId,
+        this.address,
+        this.phoneNumber
+      ).toPromise();
+
+      if (!orderResponse || !orderResponse.orderId) {
+        this.toastr.error('Invalid order response');
+        return;
+      }
+
+      // Complete order and get client secret
+      const completeResponse = await this.orderService.completeOrder(orderResponse.orderId).toPromise();
+
+      if (!completeResponse || !completeResponse.clientSecret) {
+        this.toastr.error('Invalid payment response');
+        return;
+      }
+
+      // Store the client secret and navigate
+      localStorage.setItem('clientSecret', completeResponse.clientSecret);
+      this.router.navigate(['/payment']);
+    } catch (error: any) {
+      this.toastr.error(error.error?.message || 'Failed to process order');
+      console.error('Order error:', error);
+    }
+  }
+
+  // Add this new method
+  goToCheckout() {
+    this.router.navigate(['/order']);
+  }
 }
