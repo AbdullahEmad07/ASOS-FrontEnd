@@ -21,7 +21,7 @@
         <i class="fa-regular fa-heart text-light fs-5 pointer mx-2" routerLink="/wish-list"></i>
 
         <i class="fa-solid fa-bag-shopping position-relative text-light fs-3 mx-2 pointer">
-          <span class="badge cart-num" *ngIf="enableNavbar" routerLink="/shopping-cart/cart">{{5}}</span>  
+          <span class="badge cart-num" *ngIf="enableNavbar" routerLink="/shopping-cart/cart">{{totalCount}}</span>  
           <span class="badge cart-num" *ngIf="!enableNavbar"></span>
         </i>
     </div>
@@ -29,9 +29,6 @@
     <div class="collapse navbar-collapse px-2" id="collapsibleNavId">
 
       <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-        <li class="nav-item fs-5 fw-medium px-3  pointer py-2 women" routerLink="home" routerLinkActive="Active" [routerLinkActiveOptions]="{ exact: true }">
-          <a class="nav-link text-white" aria-current="page"> Home </a>
-        </li>
         <li class="nav-item fs-5 fw-medium px-3  pointer py-2 women" routerLink="women" routerLinkActive="Active">
           <a class="nav-link text-white" aria-current="page"> Women </a>
         </li>
@@ -93,3 +90,4 @@
     </div>
   </div>
 </nav>
+
