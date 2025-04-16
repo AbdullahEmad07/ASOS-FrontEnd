@@ -21,12 +21,7 @@ export class ShoppingCartService {
   getCartProducts(): Observable<any> {
     return this._Http.get(`${this.baseUrl}/Cart/products`, {
       headers: this.getHeaders()
-    }).pipe(
-      tap({
-        next: (response) => console.log('Cart Response:', response),
-        error: (error) => console.error('Cart Error:', error)
-      })
-    );
+    });
   }
 
   addToCart(productId: string): Observable<any> {

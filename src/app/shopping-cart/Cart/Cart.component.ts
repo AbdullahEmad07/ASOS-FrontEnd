@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from '../../Services/shopping-cart.service';
+import { IProduct } from '../../Models/iproduct';
+import { ToastrService } from 'ngx-toastr';
+import { ICartProduct } from '../../Models/icart-product';
 
 @Component({
   selector: 'app-cart',
@@ -6,49 +10,70 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Cart.component.css']
 })
 export class CartComponent implements OnInit {
-   cartItems = [
-    { name: 'Asos design Black dress', code: 'G2356', price: 1250, quantity: 1, image: 'https://i.pinimg.com/736x/9a/97/24/9a9724ce27d3a072b2e3dabbdc8cf6db.jpg' },
-   ];
-
-   suggestionItems = [
-    { image: 'https://i.pinimg.com/736x/9a/97/24/9a9724ce27d3a072b2e3dabbdc8cf6db.jpg', price: 20 },  // Replace with real image links
-    { image: 'https://i.pinimg.com/736x/9a/97/24/9a9724ce27d3a072b2e3dabbdc8cf6db.jpg', price: 30 },  // Replace with real image links
-    { image: 'https://i.pinimg.com/736x/9a/97/24/9a9724ce27d3a072b2e3dabbdc8cf6db.jpg', price: 40 },  // Replace with real image links
-   ];
-
+   
   couponCode: string = '';
   subtotal: number = 0;
   total: number = 0;
 
-  constructor() {}
+  totalPrice : number = 0 ;
+  totalCount : number = 0 ;
+
+  cartProducts : ICartProduct [] = [] ;
+  isLoading: boolean = false;
+  loggedUserToken: any;
+
+  constructor(private _ShoppingCartService : ShoppingCartService ,  private toastr:ToastrService) {}
 
   ngOnInit(): void {
-    this.calculateTotals();
+    this.loggedUserToken = localStorage.getItem('token');
+    this.GetloggedUserCart();
   }
 
-   increaseQuantity(item: any): void {
+  GetloggedUserCart(){
+    this.isLoading=true;
+
+    this._ShoppingCartService.getCartProducts().subscribe({
+      next: (response) => {
+        console.log(response);
+        
+        this.isLoading=false;
+
+        this.cartProducts = response.data;
+        this.totalPrice = response.totalPrice;
+        this.totalCount = response.totalCount;
+
+
+        // console.log(this.cartProducts , this.totalCount , this.totalPrice);
+      },
+      error : (err)=>{
+        console.log(err);
+        this.isLoading=false;
+      }
+    })
+  }
+
+  removeProduct(id:string){
+    this._ShoppingCartService.removeFromCart(id).subscribe({
+      next:(response) => {
+        this.toastr.error("Product Deleted")
+        this.GetloggedUserCart();
+      },
+      error: (err) => {
+        this.toastr.error('Failed to Delete from Cart');
+      }
+    })
+  }
+
+  
+  increaseQuantity(item: any): void {
     item.quantity++;
-    this.calculateTotals();
   }
 
-   decreaseQuantity(item: any): void {
+  decreaseQuantity(item: any): void {
     if (item.quantity > 1) {
       item.quantity--;
     }
-    this.calculateTotals();
   }
 
-   removeItem(item: any): void {
-    this.cartItems = this.cartItems.filter(i => i !== item);
-    this.calculateTotals();
-  }
-
-   applyCoupon(): void {
-    console.log('Coupon applied: ', this.couponCode);
-   }
-
-   calculateTotals(): void {
-    this.subtotal = this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    this.total = this.subtotal;  
-  }
+  
 }

@@ -3,72 +3,74 @@
     <div class="main-heading">MY BAG</div>
   </div>
 
-  <div class="cart-grid">
-    <div class="cart-items">
-      <div *ngFor="let item of cartItems" class="cart-item">
-        <img [src]="item.image" alt="{{ item.name }}" width="100" />
-        <div class="details">
-          <h4>{{ item.name }}</h4>
-          <p>Code: {{ item.code }}</p>
-          <p>Price: ${{ item.price }}</p>
-          <div class="quantity-controls">
-            <button (click)="decreaseQuantity(item)">-</button>
-            <span>{{ item.quantity }}</span>
-            <button (click)="increaseQuantity(item)">+</button>
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Not Loading States -->
+  <ng-container *ngIf="!isLoading">
+    <!-- Logged User with Products -->
+    <div *ngIf="loggedUserToken && cartProducts.length > 0">
+      <div class="cart-grid">
+        <div class="cart-items">
+          <div *ngFor="let item of cartProducts" class="cart-item position-relative mb-5">
+            <img [src]="item.imageUrls[0]" [alt]="item.name" width="100">
+            <div class="details">
+              <h4>{{ item.name }}</h4>
+              <p>Price: {{ item.price | currency }}</p>
+              <div class="quantity-controls">
+                <button (click)="decreaseQuantity(item)">-</button>
+                <span>{{ item.quantityInCart || 1 }}</span>
+                <button (click)="increaseQuantity(item)">+</button>
+              </div>
+            </div>
+            <button class="remove-btn" (click)="removeProduct(item.id)">
+              <i class="fa-solid fa-trash text-danger"></i>
+            </button>
+          </div>
+
+          <hr />
+          <div class="coupon">
+            <input type="text" [(ngModel)]="couponCode" placeholder="Enter coupon code" />
+            <button >Apply Coupon</button>
           </div>
         </div>
-        <button class="remove-btn" (click)="removeItem(item)">X</button>
-      </div>
 
-      <hr />
-
-      <div class="totals">
-        <p><strong>Subtotal:</strong> ${{ subtotal }}</p>
-        <p><strong>Total:</strong> ${{ total }}</p>
-      </div>
-
-      <div class="coupon">
-        <input type="text" [(ngModel)]="couponCode" placeholder="Enter coupon code" />
-        <button (click)="applyCoupon()">Apply Coupon</button>
-      </div>
-    </div>
-
-    <div class="cart-summary">
-      <div class="cart-totals">
-        <h3>TOTAL</h3>
-        <table>
-          <tr>
-            <td>Sub-total</td>
-            <td>${{ subtotal }}</td>
-          </tr>
-          <tr>
-            <td>Total</td>
-            <td>${{ total }}</td>
-          </tr>
-        </table>
-        <button class="round-black-btn">CHECKOUT</button>
-        <p>Got a discount code? Add it in the next step.</p>
-        <p>WE ACCEPT:</p>
-        <img src="https://img.icons8.com/color/48/000000/visa.png" width="30" />
-        <img src="https://img.icons8.com/color/48/000000/mastercard.png" width="30" />
-        <img src="https://img.icons8.com/color/48/000000/amex.png" width="30" />
-        <img src="https://img.icons8.com/color/48/000000/paypal.png" width="30" />
-      </div>
-    </div>
-  </div>
-
-  <div class="suggestions">
-    <h4>A LITTLE SOMETHING EXTRA?</h4>
-    <div class="suggestion-slider">
-      <div class="suggestion-track">
-        <ng-container *ngFor="let suggestion of suggestionItems.concat(suggestionItems, suggestionItems)">
-          <div class="suggestion-item">
-            <img [src]="suggestion.image" alt="Anklet" />
-            <p>${{ suggestion.price }}</p>
+        <div class="cart-summary">
+          <div class="cart-totals">
+            <h3 class="fs-2">TOTAL</h3>
+            <h4 class="fs-4 my-4">{{ total | currency }}</h4>
+            <button class="round-black-btn">CHECKOUT</button>
+            <p>Got a discount code? Add it in the next step.</p>
+            <p>WE ACCEPT:</p>
+            <div class="payment-icons">
+              <img src="https://img.icons8.com/color/48/000000/visa.png" width="30" />
+              <img src="https://img.icons8.com/color/48/000000/mastercard.png" width="30" />
+              <img src="https://img.icons8.com/color/48/000000/amex.png" width="30" />
+              <img src="https://img.icons8.com/color/48/000000/paypal.png" width="30" />
+            </div>
           </div>
-        </ng-container>
+        </div>
       </div>
     </div>
-  </div>
-  
+
+    <!-- Empty Cart -->
+    <div *ngIf="loggedUserToken && cartProducts.length === 0" 
+         class="vh-100 d-flex flex-column justify-content-center align-items-center">
+      <i class="fa-solid fa-shopping-cart fa-4x mb-4 text-muted"></i>
+      <h2 class="text-muted fs-1 mb-4">Your Shopping Bag is Empty</h2>
+      <button class="btn btn-dark" routerLink="/home">Continue Shopping</button>
+    </div>
+
+    <!-- Not Logged In -->
+    <div *ngIf="!loggedUserToken" 
+         class="vh-100 d-flex flex-column justify-content-center align-items-center">
+      <i class="fa-solid fa-user-lock fa-4x mb-4 text-danger"></i>
+      <h2 class="text-danger fs-1 mb-4">Please Log In First</h2>
+      <button class="btn btn-dark" routerLink="/login">Log In</button>
+    </div>
+  </ng-container>
 </div>
