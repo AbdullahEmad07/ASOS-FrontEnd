@@ -104,11 +104,14 @@ export class ProductComponent implements OnInit {
       }
     });
   }
+
+
   GetCartProducts(){
     this._ShoppingCartServices.getCartProducts().subscribe({
       next: (response) => { 
         if (response && response.data) {
           this.CartProductsId = response.data.map((product: any) => product.id);
+          this._ShoppingCartService.cartPtoductNum.next(response.totalCount)
         }
       },
       error: (error) => {

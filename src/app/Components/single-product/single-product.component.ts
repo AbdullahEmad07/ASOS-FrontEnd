@@ -63,11 +63,28 @@ export class SingleProductComponent implements OnInit {
   AddToCart(productId:any){
     this._ShoppingCartService.addToCart(productId).subscribe({
       next: (response) => {
-        this.toastr.success("Product Added To Cart")
+        this.toastr.success("Product Added To Cart");
+        this.GetCartProducts();
       },
       error: (err) => { console.log(err)}
     })
   }
+
+
+  GetCartProducts(){
+    this._ShoppingCartService.getCartProducts().subscribe({
+      next: (response) => { 
+        if (response && response.data) {
+          this._ShoppingCartService.cartPtoductNum.next(response.totalCount)
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching wishlist:', error);
+        this.toastr.error('Failed to fetch wishlist');
+      }
+    });
+  };
+  
 
 
   showSuccess() {

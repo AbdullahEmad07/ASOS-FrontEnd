@@ -59,7 +59,8 @@ AddToCart(productId: string){
   this._ShoppingCartService.addToCart(productId).subscribe({
     next: (response) => {
       this.toastr.success("Product Added to Cart");
-      this.removeFromWishList(productId)
+      this.removeFromWishList(productId);
+      this.GetCartProducts();
     },
     error: (err) => {
       this.toastr.error("Failed To Add To Cart")
@@ -69,6 +70,20 @@ AddToCart(productId: string){
   
 }
 
+
+GetCartProducts(){
+  this._ShoppingCartService.getCartProducts().subscribe({
+    next: (response) => { 
+      if (response && response.data) {
+        this._ShoppingCartService.cartPtoductNum.next(response.totalCount)
+      }
+    },
+    error: (error) => {
+      console.error('Error fetching wishlist:', error);
+      this.toastr.error('Failed to fetch wishlist');
+    }
+  });
+};
 
 showSuccess() {
   this.toastr.success('Product Added To Wish List');

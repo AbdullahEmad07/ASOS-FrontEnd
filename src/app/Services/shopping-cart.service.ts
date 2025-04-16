@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,11 @@ import { Observable, tap } from 'rxjs';
 export class ShoppingCartService {
   private baseUrl = environment.apiUrl;
 
-  constructor(private _Http: HttpClient) { }
+  cartPtoductNum : BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
+  constructor(private _Http: HttpClient) { 
+    
+  }
 
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('token');
