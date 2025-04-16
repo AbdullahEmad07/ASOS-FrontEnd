@@ -40,6 +40,9 @@ import { SingleProductComponent } from './Components/single-product/single-produ
 import { MBrandProductsComponent } from './Components/mbrand-products/mbrand-products.component';
 import { WBrandProductsComponent } from './Components/wbrand-products/wbrand-products.component';
 import { ToastrModule } from 'ngx-toastr';
+import { OrderComponent } from './order/order/order.component';  // Keep consistent casing
+import { CommonModule } from '@angular/common';  // Add this import
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -75,9 +78,12 @@ import { ToastrModule } from 'ngx-toastr';
     SingleProductComponent,
     MBrandProductsComponent,
     WBrandProductsComponent,
+    OrderComponent,
+    PaymentComponent,  // Add this
   ],
   imports: [
     BrowserModule,
+    CommonModule,  // Add this
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,

@@ -16,7 +16,9 @@ import { RegisterComponent } from './Components/Register/Register.component';
 import { SingleProductComponent } from './Components/single-product/single-product.component';
 import { MBrandProductsComponent } from './Components/mbrand-products/mbrand-products.component';
 import { WBrandProductsComponent } from './Components/wbrand-products/wbrand-products.component';
-
+import { PaymentComponent } from './payment/payment.component';
+import { OrderComponent } from './order/order/order.component';  // Updated casing
+import { UserOrdersComponent } from './Components/user-orders/user-orders.component';
 
 const routes: Routes = [
   {path:'' , redirectTo:'home' , pathMatch:'full'},
@@ -36,11 +38,11 @@ const routes: Routes = [
   {path:"single-product/:productId/:productName" , component:SingleProductComponent , title : "Product Details"},
   {path:"login" , component:LoginComponent , title: "Login" },
   {path:"register" , component:RegisterComponent , title: "Register"},
-
+  { path: 'order', component: OrderComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'user-orders', component: UserOrdersComponent, title: 'My Orders' },  // Updated route
   
-
-
-  { path: 'shopping-cart', loadChildren: () => import('./shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule)  },
+  { path: 'shopping-cart', loadChildren: () => import('./shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule) },
   { path: 'wish-list',  loadChildren: () => import('./wish-list/wish-list.module').then(m => m.WishListModule) },
   { path: 'Profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }  
 ];

@@ -43,7 +43,7 @@
           <div class="cart-totals">
             <h3 class="fs-2">TOTAL</h3>
             <h4 class="fs-4 my-4">{{ totalPrice | currency }}</h4>
-            <button class="round-black-btn">CHECKOUT</button>
+            <button class="round-black-btn" (click)="goToCheckout()">CHECKOUT</button>
             <p>Got a discount code? Add it in the next step.</p>
             <p>WE ACCEPT:</p>
             <div class="payment-icons">

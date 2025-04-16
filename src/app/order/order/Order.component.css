@@ -1,0 +1,14 @@
+.card {
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border: none;
+}
+
+.card-title {
+  color: #333;
+  font-weight: 600;
+}
+
+.btn-dark:disabled {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
