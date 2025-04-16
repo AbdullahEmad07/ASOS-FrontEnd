@@ -16,13 +16,8 @@ export class SingleProductComponent implements OnInit {
   productId : string =""
   product:IProduct = {} as IProduct ;
 
-  mainImage: string = '../../../assets/1.jpg';
-  thumbnails: string[] = [
-    '../../../assets/2.jpg',
-    '../../../assets/11.jpg',
-    './../../assets/2.jpg',
-    '../../../assets/3.jpg'
-  ];
+  mainImage: string = '';
+  thumbnails: string[] = [];
 
 
 

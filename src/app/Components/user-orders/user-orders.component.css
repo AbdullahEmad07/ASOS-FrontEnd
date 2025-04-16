@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    background: #fdfdfd;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  .logo {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: rgb(114, 109, 109);
+  }
+  
+  .menu a {
+    display: block;
+    margin-bottom: 18px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .menu a.active {
+    color: #f06050;
+    font-weight: bold;
+  }
+  
+  .package {
+    background: #fff3e6;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: rgb(114, 109, 109);
+  
+  }
+  
+  .package .usage {
+    margin: 8px 0;
+    color: #f06050;
+  }
+  
+  .package .upgrade {
+    background: none;
+    border: none;
+    color: #f06050;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .help {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .orders {
+    flex: 1;
+    padding: 32px;
+    overflow-y: auto;
+  }
+  
+  .orders h1 {
+    margin-bottom: 32px;
+    font-size: 28px;
+  }
+  
+  .order {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  
+  .top-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .order-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .description {
+    flex: 1;
+  }
+  
+  .status {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: white;
+    align-self: flex-start;
+  }
+  
+  .shipped {
+    background-color: #5ed29b;
+  }
+  
+  .received {
+    background-color: #b0b0b0;
+  }
+  
+  .qty {
+    font-weight: bold;
+    margin-top: 4px;
+  }
+  
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .register,
+  .archive {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .register {
+    background-color: #f06050;
+    color: white;
+  }
+  
+  .archive {
+    background-color: #f0f0f0;
+  }
+  
+  .delivery {
+    font-size: 12px;
+    color: #888;
+    margin-top: 16px;
+  }
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      overflow-x: auto;
+      padding: 16px;
+      align-items: center;
+      border-right: none;
+      border-bottom: 1px solid #eaeaea;
+    }
+  
+    .menu {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+  
+    .menu a {
+      margin-bottom: 0;
+      font-size: 13px;
+    }
+  
+    .package, .help {
+      display: none;
+    }
+  
+    .orders {
+      padding: 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .order-body {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .top-info {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .actions {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  
+    .register, .archive {
+      flex: 1;
+      width: 100%;
+    }
+  
+    .order {
+      padding: 16px;
+    }
+  
+    .orders h1 {
+      font-size: 22px;
+    }
+  
+    .status {
+      margin-top: 10px;
+    }
+  }
+
+  /* img{
+    max-width: 400px !important;
+    max-height: 200px;
+  } */
+  
+  .orderImg{
+    max-width: 400px;
+    height: 200px;
+  }
