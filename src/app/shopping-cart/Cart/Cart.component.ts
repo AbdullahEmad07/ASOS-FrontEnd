@@ -40,10 +40,11 @@ export class CartComponent implements OnInit {
 
         this.cartProducts = response.data;
         this.totalPrice = response.totalPrice;
-        this.totalCount = response.totalCount;
+        // this.totalCount = response.totalCount;
 
-
+        this._ShoppingCartService.cartPtoductNum.next(response.totalCount);
         // console.log(this.cartProducts , this.totalCount , this.totalPrice);
+
       },
       error : (err)=>{
         console.log(err);
@@ -64,15 +65,52 @@ export class CartComponent implements OnInit {
     })
   }
 
-  
-  increaseQuantity(item: any): void {
-    item.quantity++;
+
+  increaseQuantity(productId: string , quantity:number): void {
+    quantity++;
+    this._ShoppingCartService.updateQuantity(productId , quantity).subscribe({
+      next: (response) => {
+        console.log(response);
+
+        if(response == "Quantity updated"){
+          this.GetloggedUserCart();
+          this.toastr.show("you increase product items")
+        }
+        
+      }, 
+      error: (err) => {
+        this.toastr.error("Failed to update Quantity")
+      }
+    })
+
   }
 
-  decreaseQuantity(item: any): void {
-    if (item.quantity > 1) {
-      item.quantity--;
+  decreaseQuantity(productId: string , quantity:number): void {
+    
+    if (quantity > 1) {
+      quantity--;
+
+      this._ShoppingCartService.updateQuantity(productId , quantity).subscribe({
+        next: (response) => {
+          console.log(response);
+  
+          if(response == "Quantity updated"){
+            this.GetloggedUserCart();
+            this.toastr.show("you Decrease product items")
+          }
+          
+        }, 
+        error: (err) => {
+          this.toastr.error("Failed to update Quantity")
+        }
+      })
+      
+    }else{
+      quantity == 1
+      this.toastr.error("Can't Decrease Less Than 1 Item")
     }
+
+    
   }
 
   
