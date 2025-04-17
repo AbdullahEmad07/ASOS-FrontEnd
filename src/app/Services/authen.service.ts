@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { IUser } from '../Models/iuser';
@@ -20,12 +20,23 @@ export class AuthenService {
 
     if(localStorage.getItem('token')){
         this.isLogin.next(true);
-        // _Router.navigate(['home']);
+        this.getloggeduser().subscribe({
+          next: (response) => { 
+            localStorage.setItem("userId" , response.id)
+          }
+        })
       }
 
     }
     
 
+    
+      private getHeaders(): HttpHeaders {
+        const token = localStorage.getItem('token');
+        return new HttpHeaders({
+          'Authorization': `Bearer ${token}`,
+        });
+      }
    
 
   signUp(user:IUser):Observable<any>{
@@ -42,5 +53,11 @@ export class AuthenService {
     localStorage.removeItem('token');
     this._Router.navigate(['/home']);
   };
+
+  getloggeduser():Observable<any>{
+    return this._Http.get(`${this.baseUrl}/users/logged-user` , {
+      headers: this.getHeaders()
+    });
+  }
   
 }

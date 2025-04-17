@@ -38,9 +38,9 @@ const routes: Routes = [
   {path:"single-product/:productId/:productName" , component:SingleProductComponent , title : "Product Details"},
   {path:"login" , component:LoginComponent , title: "Login" },
   {path:"register" , component:RegisterComponent , title: "Register"},
-  { path: 'order', component: OrderComponent },
+  { path: 'order', component: OrderComponent , title:"Check out" },
   { path: 'payment', component: PaymentComponent },
-  { path: 'user-orders', component: UserOrdersComponent, title: 'My Orders' },  // Updated route
+  { path: 'user-orders', component: UserOrdersComponent, title: 'My Orders xxx' },  // Updated route
   
   { path: 'shopping-cart', loadChildren: () => import('./shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule) },
   { path: 'wish-list',  loadChildren: () => import('./wish-list/wish-list.module').then(m => m.WishListModule) },
