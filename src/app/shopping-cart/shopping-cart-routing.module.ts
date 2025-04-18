@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './Cart/Cart.component';
 
 const routes: Routes = [
+  {path:'', redirectTo:"cart", pathMatch: 'full'},
   {path:"cart" , component:CartComponent , title: "Shopping Cart"}
 ];
 

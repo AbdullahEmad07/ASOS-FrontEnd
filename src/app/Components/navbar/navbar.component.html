@@ -51,7 +51,7 @@
               <i class="fa-solid fa-user text-light fs-4 pointer"></i>      
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownId">
-            <a class="dropdown-item"> <i class="fa-solid fa-circle-user me-2"></i> My Account</a>
+            <a class="dropdown-item" routerLink="/Profile"> <i class="fa-solid fa-circle-user me-2"></i> My Account</a>
 
             <div class="d-flex" *ngIf="!enableNavbar">
               <a class="dropdown-item" routerLink="/login">Login</a> | <a class="dropdown-item" routerLink="/register">Register</a>
@@ -75,7 +75,7 @@
 
       <ul class="navbar-nav ms-auto align-items-lg-center d-lg-none ps-3 mt-2">
         <li class="nav-item text-light mx-lg-4 mb-1 fs-6 pointer">
-          <a class="dropdown-item">  My Account</a>
+          <a class="dropdown-item" routerLink="/Profile">  My Account</a>
         </li>
         <li class="nav-item text-light mx-lg-4 mb-1 fs-6 pointer">
           <div class="d-flex" *ngIf="!enableNavbar">
