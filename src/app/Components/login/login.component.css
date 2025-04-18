@@ -1,4 +1,4 @@
-*{
+/* *{
   box-sizing: border-box;
   margin: 0 ;
   padding: 0 ;
@@ -248,4 +248,214 @@ input:focus {
 }
 
 
+ */
+
+
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.body {
+  margin: auto;
+  margin-top: 40px;
+  min-height: 70vh;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: gradientAnimation 20s ease infinite;
+  background-size: contain;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  gap: 5px;
+  transition: all 0.5s ease-in-out;
+  border-radius: 15px;
+}
+
+.image-container,
+.form-container {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  transition: all 0.7s ease-in-out;
+  width: 100%;
+}
+
+.image-container {
+  background: url('../../../assets/Asos.png') no-repeat center center;
+  background-size: cover;
+  z-index: 2;
+  margin-right: -5px;
+  border-radius: 10px;
+}
+
+.registered .image-container {
+  transform: translateX(100%);
+}
+
+.registered .form-container {
+  transform: translateX(-100%);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 90%;
+  margin-top: 10px;
+  border-radius: 10px;
+  outline: none;
+  transition: transform 0.3s ease;
+}
+
+input:focus {
+  border-color: #373735;
+  transform: scale(1.02);
+}
+
+button {
+  padding: 12px;
+  background-color: #363434;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: rgba(59, 59, 59, 0.545);
+}
+
+button[type="button"]:hover {
+  background-color: rgba(55, 55, 55, 0.545);
+}
+
+.forgot {
+  font-size: 15px;
+  color: rgba(165, 42, 42, 0.736);
+  margin: 5px 15px;
+  text-decoration: none;
+}
+
+.join-text {
+  text-align: center;
+  font-size: 14px;
+}
+
+.subtitle {
+  color: rgba(78, 70, 70, 0.614);
+  text-align: center;
+  font-size: x-large;
+}
+
+label {
+  display: block;
+  color: rgba(129, 118, 118, 0.614);
+}
+
+i {
+  margin: 0 5px;
+  color: rgb(91, 87, 87);
+  align-self: center;
+}
+
+/* Animation for inputs */
+@keyframes fadeSlideIn {
+  from {
+    visibility: hidden;
+    transform: translateY(25px);
+  }
+  to {
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.animate-form input {
+  visibility: hidden;
+  animation: fadeSlideIn 0.5s ease forwards;
+}
+
+.form-group:nth-of-type(1) input { animation-delay: 0.3s; }
+.form-group:nth-of-type(2) input { animation-delay: 0.6s; }
+.form-group:nth-of-type(3) input { animation-delay: 0.9s; }
+.form-group:nth-of-type(4) input { animation-delay: 1.2s; }
+
+@media (max-width: 768px) {
+  .body {
+    width: 100%;
+  }
+
+  .form-container {
+    width: 80% !important;
+  }
+
+  .image-container {
+    width: 20% !important;
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form-container {
+    width: 100% !important;
+  }
+
+  .image-container {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .login-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image-container {
+    display: none !important;
+  }
+
+  .form-container {
+    width: 100% !important;
+    transform: translateX(0) !important;
+  }
+
+  .registered .form-container {
+    transform: translateX(0) !important;
+  }
+
+  .registered .image-container {
+    transform: translateX(0) !important;
+  }
+}
+.form-group.first{
+  margin-top: 50px !important;
+}
 
