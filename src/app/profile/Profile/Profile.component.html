@@ -1,31 +1,29 @@
 <div class="img">
   <h1>My Account</h1>
- </div>
- <div class="wishlist-container">
-<div class="container-fluid">
-  <div class="row">
-   <div class="col-sm-12 col-md-6 col-lg-2 sidebar">
-    <ul>
-      <li><a href="#">My Orders</a></li>
-      <li><a href="#">My Returns</a></li>
-      <li class="active"><a href="#">My Wishlist </a></li>
-      <li><a href="#">My Information</a></li>
-      <li><a href="#">My Credits & E-cards</a></li>
-      <li><a href="#">My Payment Methods</a></li>
-      <li><a href="#">In Need of Help</a></li>
-      <li><a href="#">Log out</a></li>
-    </ul>
-   </div>
-   <div class="col-sm-12 col-md-6 col-lg-10 main-content">
-    <div class="tabs">
-      <div class="tab active">WISHLIST</div>
-      <div class="tab">ALERTS</div>
+</div>
+<div class="wishlist-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-2 sidebar">
+        <ul>
+          <li routerLinkActive="active">
+            <a [routerLink]="['info']">My Information</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['orders']">My Orders</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['wishlist']">My WishList</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['cart']">My ShoppingBag</a>
+          </li>
+          <li><a (click)="logout()" style="cursor: pointer;"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-10 main-content">
+        <router-outlet></router-outlet>
+      </div>
     </div>
-    <div class="wishlist-items">
-    <!-- <app-product></app-product> -->
-    </div>
-   </div>
   </div>
 </div>
-
- </div>

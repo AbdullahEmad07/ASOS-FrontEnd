@@ -15,7 +15,7 @@
         </div>
 
         <!-- Iterate over orderItems within each order -->
-        <div class="order-body" *ngFor="let item of order.orderItems">
+        <div class="order-body mb-4" *ngFor="let item of order.orderItems">
           <img [src]="item.imageUrls[0]" class="orderImg" [alt]="item.name" />
           <div class="description">
             <h3>{{ item.name }}</h3>

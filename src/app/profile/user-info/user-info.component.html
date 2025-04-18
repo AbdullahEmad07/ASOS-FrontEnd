@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+    <button class="btn btn-link" (click)="retryLoading()">Try Again</button>
+  </div>
+
+  <div *ngIf="!isLoading && !error && userInfo" class="card">
+    <div class="card-body">
+      <h2 class="card-title mb-4">Personal Information</h2>
+      
+      <div class="mb-3">
+        <label class="fw-bold">Name:</label>
+        <p>{{userInfo.name}}</p>
+      </div>
+
+      <div class="mb-3">
+        <label class="fw-bold">Email:</label>
+        <p>{{userInfo.email}}</p>
+      </div>
+
+      <div class="mb-3">
+        <label class="fw-bold">Phone:</label>
+        <p>{{userInfo.phone || 'Not provided'}}</p>
+      </div>
+
+      <div class="mb-3">
+        <label class="fw-bold">Address:</label>
+        <p>{{userInfo.address || 'Not provided'}}</p>
+      </div>
+    </div>
+  </div>
+</div>
