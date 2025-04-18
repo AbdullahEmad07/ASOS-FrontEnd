@@ -29,6 +29,7 @@ import { IUser } from '../../Models/iuser';
 })
 
 export class LoginComponent {
+  screenIsLarge: boolean = window.innerWidth >= 768;
   isRegistered: boolean = false;
    isLoading: boolean = false;
    apiResponse: string = "";
