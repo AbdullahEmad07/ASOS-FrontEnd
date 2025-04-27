@@ -53,7 +53,7 @@ export class ProductComponent implements OnInit {
         this.GetWishListProducts();          
       },
       error: (error) => {
-        console.error('Error removing from wishlist:', error);
+        // console.error('Error removing from wishlist:', error);
       }
     });
   };

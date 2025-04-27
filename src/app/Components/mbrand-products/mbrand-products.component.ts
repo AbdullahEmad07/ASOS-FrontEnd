@@ -26,7 +26,7 @@ export class MBrandProductsComponent implements OnInit {
     this._MenProductsService.getMenBrandProducts(this.brandName).subscribe({
       next: (response) => {
         this.products = response.data ;
-        console.log(response.data);
+        // console.log(response.data);
         
       }
     })

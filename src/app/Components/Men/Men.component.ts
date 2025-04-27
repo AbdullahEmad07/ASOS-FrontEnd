@@ -53,11 +53,11 @@ export class MenComponent implements OnInit, AfterViewInit {
     this._MenProductsService.getMenNewInProducts().subscribe({
       next: (response) => {
         this.newInProducts = response.data; // Assuming the API returns total items count
-        console.log(this.newInProducts);
+        // console.log(this.newInProducts);
         
       },
       error: (error) => {
-        console.error(error);
+        // console.error(error);
       }
     })
   }
@@ -66,11 +66,11 @@ export class MenComponent implements OnInit, AfterViewInit {
     this._MenProductsService.getAllMenProducts(pageNum).subscribe({
       next: (response) => {
         this.products = response.data; // Assuming the API returns total items count
-        console.log(this.products);
+        // console.log(this.products);
         
       },
       error: (error) => {
-        console.error(error);
+        // console.error(error);
       }
     });
   };

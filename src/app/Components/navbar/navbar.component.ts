@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
         }
     });
 
-    // this.GetloggedUserCart();
+    this.GetloggedUserCart();
 
     this._ShoppingCartService.cartPtoductNum.subscribe({
       next:(bahviorSubVal) => { this.totalCount = bahviorSubVal}

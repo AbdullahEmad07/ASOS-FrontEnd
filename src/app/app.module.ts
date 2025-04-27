@@ -25,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProductComponent } from './Components/product/product.component';
 import { ProfileComponent } from './Components/profile/profile.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenClothingSearchPipe } from './Pipes/men-clothing-search.pipe';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
@@ -43,6 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { OrderComponent } from './order/order/order.component';  // Keep consistent casing
 import { CommonModule } from '@angular/common';  // Add this import
 import { PaymentComponent } from './payment/payment.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { loaderInterceptor } from './Interceptors/loader.interceptor';
 
 
 @NgModule({
@@ -79,11 +81,11 @@ import { PaymentComponent } from './payment/payment.component';
     MBrandProductsComponent,
     WBrandProductsComponent,
     OrderComponent,
-    PaymentComponent,  // Add this
+    PaymentComponent,  
   ],
   imports: [
     BrowserModule,
-    CommonModule,  // Add this
+    CommonModule,  
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
@@ -94,9 +96,10 @@ import { PaymentComponent } from './payment/payment.component';
     NgxPaginationModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({timeOut:1500 , positionClass: 'toast-bottom-right'}), // ToastrModule added
+    NgxSpinnerModule
 
   ],
-  providers: [],
+  providers: [provideHttpClient( withInterceptors([loaderInterceptor]) )],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

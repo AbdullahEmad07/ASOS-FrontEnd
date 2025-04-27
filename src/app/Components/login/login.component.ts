@@ -71,7 +71,7 @@ export class LoginComponent {
           next:(response) => {
              this.apiResponse= response.message ;
              this.isLoading =false ;
-             console.log(this.apiResponse);
+            //  console.log(this.apiResponse);
          
  
              if (this.apiResponse = 'sucsses'){
@@ -82,7 +82,7 @@ export class LoginComponent {
          error:(err) => { 
              this.apiResponse = err.error.message;
              this.isLoading =false ;
-             console.log(err.message);
+            //  console.log(err.message);
              
          }
        }); 
@@ -104,7 +104,7 @@ export class LoginComponent {
              next: (response) =>{ 
                this.apiResponse = response.message;
                this.isLoading =false;
-               console.log(response);
+              //  console.log(response);
                
  
              if(this.apiResponse = 'success'){
@@ -114,13 +114,13 @@ export class LoginComponent {
                this._Router.navigate(['/home']);
              
                localStorage.setItem('token' , response.token.token)
-               console.log(response.token.token);
+              //  console.log(response.token.token);
                
  
              
  
                let decodedToken : any = jwtDecode(response.token.token) ; 
-               console.log(decodedToken)
+              //  console.log(decodedToken)
              }
              
              } ,

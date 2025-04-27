@@ -42,11 +42,11 @@ textArray: string[] = [
     this._WomenProductsService.getWomenNewInProducts().subscribe({
       next: (response) => {
         this.newInProducts = response.data; // Assuming the API returns total items count
-        console.log(this.newInProducts);
+        // console.log(this.newInProducts);
         
       },
       error: (error) => {
-        console.error(error);
+        // console.error(error);
       }
     })
   }
@@ -55,11 +55,11 @@ textArray: string[] = [
     this._WomenProductsService.getAllWomenProducts(pageNum).subscribe({
       next: (response) => {
         this.products = response.data; // Assuming the API returns total items count
-        console.log(this.products);
+        // console.log(this.products);
         
       },
       error: (error) => {
-        console.error(error);
+        // console.error(error);
       }
     });
   };

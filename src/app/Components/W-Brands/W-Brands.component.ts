@@ -19,7 +19,7 @@ brandsArr:IBrand[] = [];
     this._WomenProductsService.getWomenBrands().subscribe(
       (response) => { 
         this.brandsArr = response.data;
-        console.log(this.brandsArr);
+        // console.log(this.brandsArr);
         
        });
   }

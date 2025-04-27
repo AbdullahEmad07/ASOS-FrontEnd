@@ -20,7 +20,7 @@ export class MBrandsComponent implements OnInit {
     this._MenProductsService.getMenBrands().subscribe(
       (response) => { 
         this.brandsArr = response.data;
-        console.log(this.brandsArr);
+        // console.log(this.brandsArr);
         
        });
   }

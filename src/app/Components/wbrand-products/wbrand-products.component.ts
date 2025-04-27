@@ -26,7 +26,7 @@ export class WBrandProductsComponent implements OnInit {
       this._WomenProductsService.getWomenBrandProducts(this.brandName).subscribe({
         next: (response) => {
           this.products = response.data ;
-          console.log(response.data);
+          // console.log(response.data);
           
         }
       })
