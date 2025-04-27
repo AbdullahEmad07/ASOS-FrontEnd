@@ -6,8 +6,8 @@ import { Router } from '@angular/router';  // Add this import
 
 @Component({
   selector: 'app-order',
-  templateUrl: './Order.component.html',
-  styleUrls: ['./Order.component.css']
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
   address: string = '';
