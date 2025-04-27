@@ -25,7 +25,7 @@ export class SingleProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productId = this._ActivatedRoute.snapshot.params['productId']
-    console.log(this.productId);
+    // console.log(this.productId);
     this.GetProduct();
     
   }
@@ -51,7 +51,9 @@ export class SingleProductComponent implements OnInit {
         this.showSuccess()
         // console.log(response); 
       },
-      error : (err) => { console.log(err) ;}
+      error : (err) => { 
+        // console.log(err) ;
+      }
     })
   }
 
@@ -61,7 +63,9 @@ export class SingleProductComponent implements OnInit {
         this.toastr.success("Product Added To Cart");
         this.GetCartProducts();
       },
-      error: (err) => { console.log(err)}
+      error: (err) => { 
+        // console.log(err)
+      }
     })
   }
 
@@ -74,7 +78,7 @@ export class SingleProductComponent implements OnInit {
         }
       },
       error: (error) => {
-        console.error('Error fetching wishlist:', error);
+        // console.error('Error fetching wishlist:', error);
         this.toastr.error('Failed to fetch wishlist');
       }
     });

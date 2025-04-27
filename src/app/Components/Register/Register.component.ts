@@ -72,7 +72,7 @@ loginForm = new FormGroup({
          next:(response) => {
             this.apiResponse= response.message ;
             this.isLoading =false ;
-            console.log(this.apiResponse);
+            // console.log(this.apiResponse);
         
 
             if (this.apiResponse = 'sucsses'){
@@ -83,7 +83,7 @@ loginForm = new FormGroup({
         error:(err) => { 
             this.apiResponse = err.error.message;
             this.isLoading =false ;
-            console.log(err.message);
+            // console.log(err.message);
             
         }
       }); 
@@ -105,7 +105,7 @@ loginForm = new FormGroup({
             next: (response) =>{ 
               this.apiResponse = response.message;
               this.isLoading =false;
-              console.log(response);
+              // console.log(response);
               
 
             if(this.apiResponse = 'success'){
@@ -119,7 +119,7 @@ loginForm = new FormGroup({
             
 
               let decodedToken : any = jwtDecode(response.token.token) ; 
-              console.log(decodedToken)
+              // console.log(decodedToken)
             }
             
             } ,

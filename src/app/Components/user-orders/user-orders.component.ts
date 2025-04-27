@@ -24,11 +24,11 @@ export class UserOrdersComponent implements OnInit {
       next: (response) => {
         if (response.success) {
           this.orders = response.data; // Store the entire orders array
-          console.log('Orders:', this.orders);
+          // console.log('Orders:', this.orders);
         }
       },
       error: (error) => {
-        console.error('Error fetching orders:', error);
+        // console.error('Error fetching orders:', error);
       }
     });
   }
